@@ -1,0 +1,49 @@
+<view class="tab-box flex-box">
+    <view class="item flex-item {{curTab == -1? 'on': ''}}" data-type="-1" bindtap='switchTab'>全部</view>
+    <view class="item flex-item {{curTab == 1? 'on': ''}}" data-type="1" bindtap='switchTab'>已成功</view>
+    <view class="item flex-item {{curTab == 2? 'on': ''}}" data-type="2" bindtap='switchTab'>已过期</view>
+</view>
+<block wx:if="{{curTab == -1}}" >
+<view class="cur-bargain" wx:if="{{goods}}" wx:for="{{goods}}" wx:key="{{index}}">
+    <view class="goods-item clearfix">
+        <image  class="goods-img" src="{{item.GoodsImg}}"></image>
+        <view class="ofh">
+            <view class="goods-name">{{item.GoodsName}}</view>
+            <view class="goods-person">{{item.CurrentSuccess}}人已拿</view>
+            <view class="goods-price">
+                已砍 <text>{{item.BargainBalance}}元</text> | 还剩 <text>{{item.ResidueBalance}}元</text>
+            </view>
+        </view>
+    </view>
+    <view class="bargain-state">
+        距砍价结束还剩 <text>{{wxTimerList['wxTimer'+ index].wxTimer}}</text>
+        <navigator class="goods-btn" hover-class="none" url="/pages/bargain/detail/index?id={{item.ID}}&prepath=mybargain&bargainid={{item.BargainID}}">继续砍价</navigator>
+    </view>
+</view>
+</block>
+<view class="goods-list">
+    <view class="goods-item clearfix" wx:for="{{items}}" wx:key="index" wx:if="{{items.length > 0}}">
+        <block wx:if="{{item.Status == 1}}">
+            <image class="goods-state" src="../../../img/89_03.png"></image>
+        </block>
+        <block wx:if="{{item.Status == 0}}">
+            <image class="goods-state" src="../../../img/89_06.png"></image>
+        </block>
+        <image  class="goods-img" src="{{item.GoodsImg}}"></image>
+        <view class="ofh">
+            <view class="goods-name">{{item.GoodsName}}</view>
+            <view class="goods-person">{{item.CurrentSuccess}}人已拿</view>
+            <view class="goods-price">{{item.StatusToString}}</view>
+        </view>
+    </view>
+</view>
+<block wx:if="{{curTab != -1}}" >
+<view class="empty" wx:if="{{!items.length}}">
+    暂无该类型砍价~
+</view>
+</block>
+<block wx:if="{{curTab == -1}}" >
+<view class="empty" wx:if="{{!goods.length}}">
+   暂无参与砍价~
+</view>
+</block>

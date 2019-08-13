@@ -1,0 +1,120 @@
+.pic-tab{
+    background:#f4f4f4;
+    height: 100%;
+}
+.tab{  
+  width:750rpx; 
+}  
+.tab-left{  
+    width: 750rpx;  
+    line-height: 80rpx;  
+    border-right: solid 1px gray; 
+    display: flex; 
+    background:#fff;
+    height:80rpx;
+}  
+.tab-left view{  
+    flex:1;
+    color:#000;
+    text-align:center;
+    font-size:29rpx;
+}  
+.tab-left .active{  
+    color: #f6819e;  
+    border-bottom:2rpx solid #f6819e;
+}  
+.tab-cont{  
+    line-height: 160%;  
+}  
+.tab-cont .right-item{  
+     
+    display: none;  
+}  
+.tab-cont .right-item.active{  
+    display: block;  
+    
+}  
+/*头部图片*/
+.head-box{position:relative;}
+.h-cover{
+    height:367rpx;
+    overflow: hidden;
+}
+.head-box .h-cover image{width:750rpx;}
+.head-box .h-info{position:absolute;left:243rpx;top:60rpx;width:290rpx;text-align:center;}
+.head-box .h-info .h-pic image{width:100rpx;height:100rpx;border-radius:50rpx;}
+.head-box .h-info .h-name{font-size:33rpx;color:#fff;line-height: 35rpx;text-align:center；}
+.head-box .h-info .h-fans{margin:10rpx 0;font-size:25rpx;color:#fff;line-height: 35rpx;text-align:center；}
+.head-box .h-info .h-fans view{padding:0 5rpx;display: inline-block;} 
+.head-box .h-info .h-op {text-align:center;overflow:hiddenn;}
+.head-box .h-info .h-op .h-priv,.head-box .h-info .h-op .h-has{border:1rpx solid #fff;height:45rpx;border-radius:23rpx;color:#fff;line-height:45rpx;text-align:center;width:120rpx;font-size:25rpx;float:left;margin-right:20rpx;}
+
+/* //动态 */
+.dyn-cont{margin-bottom:20rpx;background:#fff;}
+.dyn-pic {overflow: hidden;height:320rpx;}
+.dyn-pic image{width:750rpx;height:320rpx;}
+.dyn-pad{margin:0 32rpx;}
+.dyn-op{height:115rpx;padding:25rpx 0;border-bottom:2rpx solid #f4f4f4;overflow:hidden;}
+.dyn-op .dyn-step{float:left;margin-left:3px;}
+.dyn-op .dyn-step button{border:0;background-color:transparent;}
+.dyn-op .dyn-step image{width:56rpx;height:56rpx;margin-right:20rpx;}
+.dyn-op .remark{float:right;}
+.dyn-op .remark image{width:56rpx;height:56rpx;}
+.dyn-like {margin:23rpx 0;}
+.dyn-like image{width:56rpx;height:56rpx;border-radius: 28rpx;margin-right:20rpx;}
+.dyn-art .art-title{font-size:30rpx;line-height:35rpx;color:#000;}
+.dyn-art .art-time{font-size:21rpx;line-height:35rpx;color:#999;}
+.dyn-art .art-text{font-size:21rpx;line-height:40rpx;color:#000;padding:10rpx 0 15rpx;}
+/* //个人资料 */
+.per-data{margin-top:5rpx;}
+.per-data .per-item {overflow:hidden;border-bottom:2rpx solid #f4f4f4;padding:0 35rpx;height:100rpx;background:#fff;box-sizing: border-box;}
+.per-data .per-item .per-id{float: left;line-height: 100rpx;color:#000;font-size:30rpx;}
+.per-data .per-item .per-info{float: right;font-size:30rpx;line-height: 100rpx;color:#666;text-align:right;}
+.per-data .per-item:last-child{overflow:initial;border:none;}
+.per-data .per-item:last-child .per-info{width:490rpx;line-height:44rpx;margin-top:30rpx;}
+
+.online-box{padding-top:20rpx;overflow: hidden;}
+.online-box .online-item{background:#fff;position:relative; width:750rpx;float:left;margin-bottom:20rpx}
+.online-item .online-video image{
+    width:750rpx;
+    height:750rpx;
+    background: #a9a9a9;
+}
+.online-item .name{
+    color:#333;
+}
+.online-box .online-item .con{
+    padding:0 30rpx 10rpx;
+}
+.online-box .online-item .time{
+    font-size: 24rpx;
+    color:#999;
+}
+.online-box .online-item .tag{
+    position: absolute;
+    top:30rpx;
+    right:30rpx;
+    width:92rpx;
+    height:40rpx;
+    border-radius:40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 22rpx;
+    color:#fff;
+    background-image: linear-gradient(90deg,#f69db1,#faccbf);
+}
+.online-item .online-info{padding:5rpx 0 10rpx 20rpx;}
+.online-info .online-name{
+    font-size:25rpx;
+    color:#000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.online-info .online-des{font-size:20rpx;color:#a9a9a9;line-height:40rpx;}
+.online-item .online-status{position:absolute;top:20rpx;left:20rpx;color:#fff;font-size:16rpx;  }
+.online-item .online-num{font-size:21rpx;color:#fff;position:absolute;right:30rpx;
+bottom:110rpx;
+}
+.online-item .online-num image{width:20rpx;height:17rpx;margin-right:5rpx;}
+.online-item .online-status icon{background:#de2339;width:15rpx;height:15rpx;border-radius:8rpx;margin-top:5rpx;float:left;margin-right:8rpx;}

@@ -1,0 +1,17 @@
+<!-- <scroll-view class="scroll" scroll-y> -->
+    <view class="item flex-box" wx:for="{{items}}" wx:key="{{index}}">
+        <image class="avator" src="{{item.FromHead}}"></image>
+        <view class="flex-item">
+            <view class="name">{{item.FromName}}</view>
+            <view class="talk ellipsis2">{{item.Content}}</view>
+            <view class="time">{{item.CreateTime}}</view>
+        </view>
+    </view>
+<!-- </scroll-view> -->
+<view class="send-bar">
+    <view class="hr28"></view>
+    <view class="send-box flex-box">
+        <input class="flex-item" bindinput="bindInput" maxlength='100' value="{{sendCon}}" placeholder='说说你的看法~'></input>
+        <view class="send" bindtap='send'>评论</view>
+    </view>
+</view>

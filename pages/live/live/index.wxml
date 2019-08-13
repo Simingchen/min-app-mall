@@ -1,0 +1,145 @@
+<view class="container {{isShowPopup1?'move':''}}">
+    <view class="noLive" wx:if="{{showCover==1}}">
+        <image class="image" src="/images/society/liveRoom/0.png" mode='widthFix'></image>
+        <view>直播离开一会儿，很快回来~</view>
+    </view>
+    <live-player wx:if="{{kind=='直播' && showCover== 0}}" id="player" src="rtmp://liveplayer.livevip.com.cn/live/{{roomNumber}}" mode="live" autoplay bindstatechange="statechange" binderror="error">
+        <cover-view class="top" wx:if="{{kind=='直播'}}">
+            <cover-view class='line-op'>
+                <cover-view class='line-show'>
+                    <cover-view class='line-pic'>
+                        <cover-image class="img" src='{{liveRoomInfo.Head}}'></cover-image>
+                    </cover-view>
+                    <cover-view class='line-info'>
+                        <cover-view class='line-name'>
+                            {{liveRoomInfo.Name}}
+                        </cover-view>
+                        <cover-view class='line-num'>
+                            {{liveRoomInfo.MaxWatchCount}}人观看
+                        </cover-view>
+                    </cover-view>
+                </cover-view>
+            </cover-view>
+            <cover-view class='line-person'>
+                <cover-image class="img" src='{{item.Head}}' wx:for="{{seeList}}" wx:key="{{index}}" wx:if="{{index<3}}"></cover-image>
+            </cover-view>
+            <cover-view class='delBtn' bindtap="goBack">X</cover-view>
+        </cover-view>
+        <!-- 信息窗 -->
+        <cover-view class="panelOne">
+            <cover-view class="box" id="box">
+                <cover-view class="item" wx:for="{{messageList}}" wx:key="{{index}}" wx:if="{{index<9}}">
+                    <cover-view wx:if="{{item.type==2}}" class="anchor">主播:</cover-view>
+                    <cover-view class="name flex-box" wx:if="{{item.Name}}">
+                        <cover-view class="lv">LV{{item.LevelName}}</cover-view>
+                        <cover-view class="flex-item">{{item.Name}}: {{item.Content}}</cover-view>
+                    </cover-view>
+                    <!--<cover-view class="name" wx:if="{{item.type==='0'}}">我:</cover-view>-->
+                    <!-- <cover-view class="content"></cover-view> -->
+                </cover-view>
+            </cover-view>
+        </cover-view>
+        <!-- 推送商品窗 -->
+        <cover-view class="push-goods flex-box" data-index="{{pushGoods.Index}}" data-number="{{pushGoods.Number}}" bindtap='getGoods' wx:if="{{pushGoods.Img}}">
+            <cover-image class="img" src="{{pushGoods.Img}}"></cover-image>
+            <cover-view class="flex-item">
+                <cover-view class="name ellipsis">{{pushGoods.Name}}</cover-view>
+                <cover-view class="price">￥ {{pushGoods.Price}}</cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-view class='dyn-op'>
+            <cover-view class='dyn-step flex-box'>
+                <cover-image class="item img" src='../../../img/wechat.png' bindtap="togglePopup1"></cover-image>
+                <cover-image class="item img {{isLikeIt?'likeactive':''}}" src="../../../img/love.png" bindtap='likeLiveRecord'></cover-image>
+                <button class="item" open-type="share">
+                    <cover-image class="img" src='../../../img/enjoy.png'></cover-image>
+                </button>
+            </cover-view>
+            <cover-view class='remark' bindtap='togglePopup'>
+                <cover-view class="num" wx:if="{{goodsList.Count > 0}}">{{goodsList.Count}}</cover-view>
+                <cover-image class="img" src='../../../img/76_03.png'></cover-image>
+            </cover-view>
+        </cover-view>
+    </live-player>
+    <!-- <video wx:if="{{kind=='录播'}}" src="{{path}}"></video> -->
+    <!-- 底部 -->
+
+    <!-- 发送消息弹窗 -->
+    <!-- {{!isShowPopup1? 'popup-enter' : ''}} -->
+    <view class="send-form " wx:if="{{isShowPopup1 & kind=='直播' && showCover== 0}}">
+        <!-- <view class="mark" bindtap="togglePopup1"></view> -->
+        <view class="con">
+            <view class="flex-box form">
+                <input class="flex-item" maxlength='20' placeholder='跟主播聊点什么?' bindinput='saveInput' value="{{input}}" bindconfirm="sendMessage" confirm-type="send"></input>
+                <view class="send-btn" bindtap='sendMessage'>发送</view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 推送商品弹窗 -->
+<cover-view class="popup {{!isShowPopup? 'popup-enter' : ''}}" wx:if="{{isShowPopup}}">
+    <!-- <cover-view class="mark" wx:if="{{isShowPopup}}" bindtap="togglePopup"></cover-view> -->
+    <cover-view class="con">
+        <cover-view class="title">
+            <cover-image class="img" src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwQDAwQEBAQFBQQFBwsHBwYGBw4KCggLEA4RERAOEA8SFBoWEhMYEw8QFh8XGBsbHR0dERYgIh8cIhocHRz/2wBDAQUFBQcGBw0HBw0cEhASHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBz/wgARCAAZABcDAREAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAABQIGBAcI/8QAGgEAAQUBAAAAAAAAAAAAAAAABAABAgMFBv/aAAwDAQACEAMQAAAA7fReO1yTi0aG9Y5Zg0TVZiMMKUiYKyoV7OwrOd//xAAwEAABAwMBBQMNAAAAAAAAAAABAgMEAAURBhITFCFREGFyFiIxNUFEUlVigpSx0f/aAAgBAQABPwC/KnucHDglxoynNl2SlGdygAknoCfQM0rSbTaNuFPuEaaOaZBkrcyfqSo7JHdirNLkzbWw9LYLMopIdbxjCgSDjPsOMjuqJa2HLZAeds71ylvylx5Tu/WC2QtQUtXOpuj7NHhvvM2svuoQpSWw8sFZ6A5qBAZYnaddjwXrZKmb5TzJeWSEJQfNPPqUGrRdIVlnXmFNlsRlcWp9oPOBG0hwA5GT8W3XlNZPnMD8lH9qJMYvGquJiPNvxoUMo3iFAoDjixyz4UVrb3T7uzS3qZrxK/df/8QAGhEAAgMBAQAAAAAAAAAAAAAAAAECEBIxQv/aAAgBAgEBPwBmayZjSZo9DqPD/8QAKxEAAgEDAwEFCQAAAAAAAAAAAQIDAAQRBRIhURAUMUGRIjRCU2Fx0eHx/9oACAEDAQE/ALQRLukl52jgdTQ1JmO2VFK9MAehHNXMaJKyIcr5H6VJcOJpFWUIoUFeB08Kj1O6Z1VpMD7CpJWZJleQSKmMHA5JP9q4gluI4pYlLezg455H6xXcLn5Tehp43t7PZICGdvDz4H5NaV8XZqPvBr//2Q=="></cover-image>
+            <cover-view class="fl txt">全部商品</cover-view>
+            <cover-view class="num fl txt">{{goodsList.Count}}</cover-view>
+            <cover-view class="fr txt close" bindtap="togglePopup">X</cover-view>
+            <!-- <cover-image class="close" src="../../../../img/close.jpg" bindtap="togglePopup"></cover-image> -->
+        </cover-view>
+        <cover-view scroll-y class="scroll" wx:if="{{goodsList.List.length > 0}}">
+            <cover-view class="adderss-list">
+                <cover-view class="goods-item" wx:for="{{goodsList.List}}" wx:key="{{index}}">
+                    <cover-view class="order">{{index+1}}</cover-view>
+                    <cover-view class="flex-box">
+                        <cover-image class="goods-img" src="{{item.DefaultImage}}"></cover-image>
+                        <cover-view class="flex-item">
+                            <cover-view class="goods-name">{{item.GoodsName}}</cover-view>
+                            <cover-view class="goods-price">¥ {{item.MinPrice}}</cover-view>
+                            <cover-view class="goods-cart" data-index="{{item.StoreIndex}}" data-number="{{item.Number}}" bindtap='getGoods'>加入购物车</cover-view>
+                        </cover-view>
+                    </cover-view>
+                </cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-view class="empty" wx:if="{{!goodsList.List.length}}">
+            暂无关联商品~
+        </cover-view>
+    </cover-view>
+</cover-view>
+<!-- sku弹窗  -->
+<cover-view class="popup" wx:if="{{isShowSkuDialog}}">
+    <cover-view class='g-join'>
+        <cover-view class='delete'>
+            <cover-image class="img" src='../../../img/icon-delete.png'></cover-image>
+        </cover-view>
+        <cover-view class='g-car-info'>
+            <cover-view class='pic-text'>
+                <cover-image class="img" src="{{goods.msg.DefaultImage}}"></cover-image>
+                <cover-view class='text' bindtap="toggleSku">
+                    <cover-view class='price'>￥{{goods.curPrice}}</cover-view>
+                    <cover-view class='inv'>库存 {{goods.curStock}} 件</cover-view>
+                    <cover-view class='inv' wx:if="{{goods.curProty}}">已选：{{goods.curProty}}</cover-view>
+                </cover-view>
+            </cover-view>
+            <cover-view class='pro-attr' wx:if="{{goods.msg.SkuInfo.length > 0}}">
+                <cover-view class='title'>产品属性</cover-view>
+                <cover-view class='pro-btn'>
+                    <cover-view class="item {{goods.curSkuId == item.MainID? 'active': '' }}" wx:for="{{goods.msg.SkuInfo}}" wx:key="index" bindtap="selectSku" data-item="{{item}}">{{item.Name}}</cover-view>
+                </cover-view>
+            </cover-view>
+            <cover-view class='pro-num'>
+                <cover-view class='text'>购买数量</cover-view>
+                <cover-view class='btn-num'>
+                    <cover-view class='item btn-del' data-type="-1" bindtap="changeQuantity">-</cover-view>
+                    <cover-view class='item num'>{{goods.productQuantity}}</cover-view>
+                    <cover-view class='item btn-add' data-type="1" bindtap="changeQuantity">+</cover-view>
+                </cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-view class='btn-group flex-box'>
+            <cover-view class="flex-item" data-type="1" bindtap='goBuy'>加入购物车</cover-view>
+            <cover-view class="flex-item" data-type="2" bindtap="goBuy">立即购买</cover-view>
+        </cover-view>
+    </cover-view>
+</cover-view>

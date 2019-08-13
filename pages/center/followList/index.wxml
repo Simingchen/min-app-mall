@@ -1,0 +1,39 @@
+<view class="follow-item" wx:for="{{items}}" wx:key="index">
+    <view class="flex-box">
+        <image class="img" src="{{item.Head}}"></image>
+        <view hover-class="none" class="flex-item" data-tid="{{item.ToID}}" data-id="{{item.ID}}" bindtap='goUrl'>
+            <view class="txt-con">
+                <view class="tit">{{item.LoginName}}</view>
+                <view class="intro ellipsis">{{item.Introduce}} </view>
+            </view>
+        </view>
+        <block wx:if="{{type == 1}}">
+        <view class="follow-btn" data-id="{{item.ToID}}" bindtap='saveFollow'>
+            <block wx:if="{{item.IsMutualConcern == 0}}">
+                关注
+            </block>
+            已关注
+        </view>
+        </block>
+        <block wx:if="{{type == 2}}">
+        <view class="follow-btn" data-id="{{item.FromID}}" data-tid="{{item.ToID}}" data-follow="{{item.IsMutualConcern}}" bindtap='saveFollow'>
+            <block wx:if="{{item.IsMutualConcern == 0}}">
+                关注
+            </block>
+            <block wx:if="{{item.IsMutualConcern == 1}}">
+                已关注
+            </block>
+        </view>
+        </block>
+    </view>
+</view>
+<view class="empty" wx:if="{{!items.length}}"> 
+    <view class="txt">
+        <block wx:if="{{type == 1}}">
+            快去关注吧~
+        </block>
+        <block wx:if="{{type ==2}}">
+            您还没有粉丝~
+        </block>
+    </view>
+</view>

@@ -1,0 +1,71 @@
+<view class="orderList-page">
+    <!-- 状态栏 -->
+    <view class="top-box">
+        <view class="flex-box top-nav">
+            <view data-type="-1" class="flex-item {{curType == -1? 'on': ''}}" bindtap="switchOrder">
+                全部
+            </view>
+            <view data-type="0" class="flex-item {{curType == 0? 'on': ''}}" bindtap="switchOrder">
+                待付款
+            </view>
+            <view data-type="2" class="flex-item {{curType == 2? 'on': ''}}" bindtap="switchOrder">
+                待发货
+            </view>
+            <view data-type="4" class="flex-item {{curType == 4? 'on': ''}}" bindtap="switchOrder">
+                待收货
+            </view>
+            <view data-type="5" class="flex-item {{curType == 5? 'on': ''}}" bindtap="switchOrder">
+                已完成
+            </view>
+        </view>
+    </view>
+    <!-- 列表 -->
+    <view>
+        <view class="empty" wx:if="{{!items.length}}"> 
+            <view class="txt">暂无订单~</view>
+        </view>
+        <view wx:if="{{items.length>0}}">
+            <view class="goods-li" wx:for="{{items}}" wx:key="index">
+                <navigator class="state-li dpb" url="/pages/order/detail/index?id={{item.Number}}">
+                    订单编号：{{item.Number}}
+                </navigator>
+                <view class="goodsItem" wx:for="{{item.LstOrderDetails}}" wx:for-item="goods" wx:key="index">
+                    <image class="img" src="{{goods.Img}}"></image>
+                    <view class="con">
+                        <view class="tit">{{goods.Name}}</view>
+                        <view class="item-subtitle sku-box">
+                            <view class="ellipsis">{{goods.Attr}}</view>
+                            <view class="num">数量：{{goods.Quantity}}</view>
+                        </view>
+                        <view class="price-li">
+                            <view class="price">
+                                ¥ {{goods.Price}}
+                            </view>
+                            <!-- <view class="market-price">
+                                ¥{{goods.marketPrice}}
+                            </view> -->
+                        </view>
+                    </view>
+                </view>
+                <view class="li-bot">
+                    <view wx:if="item.Postage">(含运费<b>{{item.Postage}}</b>)</view>
+                    <view>合计:<b> {{item.TotalPrice}} </b></view>   
+                    <view>共<b>{{item.TotalQuantity}}</b>件商品</view>
+                </view>
+                <view class="btns-line clearfix">
+                    <block wx:if="{{item.Status == 0}}">
+                        <navigator class="delete-btn" hover-class="none" url="/pages/order/detail/index?id={{item.Number}}">去付款</navigator>
+                        <view class="delete-btn" wx:if="{{item.Status == 0}}" data-id="{{item.ID}}" bindtap="cancleOrder">取消订单</view>
+                    </block>
+                    <!-- <view class="delete-btn" wx:if="{{item.Status == 2}}" bindtap='refundApply'>申请退款</view> -->
+                    <view class="delete-btn" wx:if="{{item.Status >= 2 && item.Status <= 4}}" data-id="{{item.LCID}}" data-number="{{item.Number}}" bindtap="seeExpress">查看物流</view>
+                    <navigator class="delete-btn" hover-class="none" wx:if="{{item.Status == 4}}"url="/pages/order/detail/index?id={{item.Number}}">确认收货</navigator>
+                    <view class="delete-btn" wx:if="{{item.Status == 5}}">已收货</view>
+                    <block wx:if="{{item.Status == 7}}">
+                        <view class="delete-btn cancle">已取消</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

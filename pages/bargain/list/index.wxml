@@ -1,0 +1,18 @@
+<image class="top-img" wx:if="{{imageUrlPath}}" src="{{imageUrlPath}}/bargin.jpg"></image>
+<view class="nav-tab flex-box">
+    <view class="flex-item {{curTab == 0?'on':''}}" data-type="0" bindtap='toggleTab'>必砍清单</view>
+    <view class="flex-item {{curTab == 1?'on':''}}" data-type="1" bindtap='toggleTab'>服饰鞋包</view>
+    <view class="flex-item {{curTab == 2?'on':''}}" data-type="2" bindtap='toggleTab'>美妆护肤</view>
+    <view class="flex-item {{curTab == 3?'on':''}}" data-type="3" bindtap='toggleTab'>吃货天地</view>
+</view>
+<view class="goods-item clearfix" wx:for="{{goodsList}}" wx:key="index">
+    <image  class="goods-img" src="{{item.GoodsImg}}"></image>
+    <view class="ofh">
+        <view class="goods-name">{{item.GoodsName}}</view>
+        <view class="goods-price">￥{{item.MaxPrice}}</view>
+        <view class="goods-person">{{item.CurrentSuccess}}人已拿</view>
+        <!-- <view class="goods-btn" bindtap="bargain" data-id="{{item.ID}}">砍价免费拿</view> -->
+        <!-- <view  bindtap="bargain" data-id="{{item.ID}}"></view> -->
+        <navigator class="goods-btn" hover-class="none" url="/pages/goods/detail/index?index={{item.GoodsIndex}}&number={{item.GoodsNumber}}&bargain={{item.ID}}">砍价免费拿</navigator>
+    </view>
+</view>

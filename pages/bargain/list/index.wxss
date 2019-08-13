@@ -1,0 +1,65 @@
+page{
+    background: #fff;
+}
+.ofh{
+    overflow: hidden;
+}
+.top-img{
+    width:100%;
+    height:350rpx;
+}
+.goods-img{
+    float:left;
+    width:180rpx;
+    height:180rpx;
+    margin-right:30rpx;
+    background:#999;
+}
+.goods-item{
+    position:relative;
+    height:240rpx;
+    padding:30rpx;
+    border-bottom:1px solid #f4f4f4;
+}
+.goods-name{
+    min-height: 60rpx;
+    margin-top:6rpx;
+    font-size: 26rpx;
+    font-weight: 600;
+    line-height: 36rpx;
+}
+.goods-price{
+    font-size: 22rpx;
+    text-decoration: line-through;
+    line-height: 1;
+}
+.goods-btn{
+    position: absolute;
+    right:30rpx;
+    bottom:30rpx;
+    box-sizing: border-box;
+    float:right;
+    width:232rpx;
+    height:70rpx;
+    font-size: 26rpx;
+    text-align: center;
+    line-height: 70rpx;
+    border-radius: 0;
+    color:#fff;
+    background-image:linear-gradient(90deg,#facdc0,#f699b0);
+}
+.goods-person{
+    margin-top:45rpx;
+    color:#f6819e;
+    font-size: 22rpx;
+}
+.nav-tab{
+    height:80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    border-bottom:1rpx solid #f4f4f4;
+}
+.nav-tab .on{
+    color:#f6819e;
+    border-bottom:4rpx solid #f6819e;
+}

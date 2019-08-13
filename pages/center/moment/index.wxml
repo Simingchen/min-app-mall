@@ -1,0 +1,48 @@
+<view class="edit-box">
+    <view class="edit-bar" wx:if="{{hotList.length}}">
+        <!-- 删除全选  -->
+        <view class="fl" data-flag="{{isAllSelectDeleted}}" bindtap="allSelectDeleted" wx:if="{{isEditStatus}}">
+            <text class="form-checkbox {{isAllSelectDeleted?'checked':''}}"></text>
+            <text>全选</text>
+        </view>
+        <view class="edit-btn fr" bindtap="changeEditStatue">{{editTxt}}</view>
+    </view>
+</view>
+<view class="news-list">
+    <view class="list-box" wx:for="{{hotList}}" wx:key="index">
+        <!-- 删除状态 -->
+        <block wx:if="{{isEditStatus}}">
+            <view class="form-checkbox {{goods.deleted? 'checked': ''}}" data-id="{{goods.ID}}" data-item="{{item}}" data-deleted="{{goods.deleted}}" bindtap="selectDeleted">
+                <text mark="编辑"></text>
+            </view>
+        </block>
+        <view class="item flex-box">
+            <view class="flex-item">
+                <view class="con">
+                    <view class="tit">
+                        <view class="txt ellipsis2">＃{{item.Title}}</view>
+                    </view>
+                    <view class="flex-box between time">
+                        <view class="flex-item">{{item.CreateTime}}</view>
+                        <view class="tar">{{item.Name}} | 评论{{item.ViewCount}}</view>
+                    </view>
+                </view>
+            </view>
+            <image class="img" mode="aspectFill" src="{{item.FileName}}"></image>
+        </view>
+    </view>
+</view>
+<!-- 脚底 -->
+<view class="footer-box" wx:if="{{isEditStatus}}">
+    <view class="subfooter flex-box">
+        <view class="flex-item">
+            <view class="footer-checkbox" data-item="{{isAllSelectDeleted}}" bindtap="allSelectDeleted">
+                <text class="form-checkbox {{isAllSelectDeleted? 'checked': ''}}"></text>
+                <text>全选</text>
+            </view>
+        </view>
+            <button class="bill-btn {{totalNum2>0? 'on': ''}}" disabled="{{totalNum2 == 0}}" bindtap="goDeleted">
+            <text>删除 ({{totalNum2}})</text>
+        </button> 
+    </view>
+</view>

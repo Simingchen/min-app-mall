@@ -1,0 +1,59 @@
+<view class="search-bar-box">
+    <view class="hr130"></view>
+    <view class="search-bar {{isSHowSearch? 'focus': ''}}">
+        <view class="search-box flex-box">
+            <view class="form flex-box flex-item">
+                <input placeholder='请输入关键字搜索' focus="{{isSHowSearch}}" bindinput="bindKeyInput" value="{{searchTxt}}" confirm-type="search" class="flex-item" maxlength="20"></input>
+                <view class="close" bindtap='clear' bindconfirm="confirmSearch"></view>
+            </view> 
+            <view class="cancel" bindtap='toggleSearch'>
+                取消
+            </view>
+        </view>
+        <view class="search-input form" bindtap='toggleSearch'>
+            <text>请输入关键字搜索</text>
+        </view>
+    </view>
+    <view class="search-con" wx:if="{{isSHowSearch}}">
+        <view class="panel search-line lately-search" wx:if="{{history.length > 0}}">
+            <view class="title">
+                最近搜索
+                <view class="del" bindtap='clearHistory'></view>
+            </view>
+            <view class="list-con clearfix">
+                <view class="item" wx:for="{{history}}" wx:key="index">
+                    {{item}}
+                </view>
+            </view>
+        </view>
+        <view class="panel search-line hot-search">
+            <view class="title">
+                热门搜索
+            </view>
+            <view class="list-con clearfix">
+                <view class="item">阿斯顿发生的发生兜风</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="goods-list" wx:if="{{!isSHowSearch}}">
+    <view class="store-item">
+        <view class="clearfix">
+            <view class="fl top">
+                <image class="img" src=""></image>
+                <text class="name">周大福旗舰店</text>
+            </view>
+            <navigator class="store-btn" hover-class="none" url="/pages/goods/detail/index">
+                进店
+            </navigator>
+        </view>
+        <view class="list">
+            <view class="goods-item">
+                <image class="goods-img"></image>
+                <view class="goods-price">
+                    <text>¥234</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

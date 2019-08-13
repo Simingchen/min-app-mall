@@ -1,0 +1,241 @@
+<import src="../../../wxParse/wxParse.wxml"/> 
+
+<!--轮播图  -->
+<swiper class="top-swiper" indicator-dots="{{topBanner.indicatorDots}}" circular="{{topBanner.circular}}" autoplay="{{topBanner.autoplay}}" interval="{{topBanner.interval}}" duration="{{topBanner.duration}}" indicator-active-color="{{topBanner.activeColor}}"
+    indicator-color="{{topBanner.color}}">
+    <block wx:for="{{topBanner.list}}" wx:key="{{index}}">
+        <swiper-item>
+            <image src="{{item}}" class="slide-image" src1="{{item}}"/>
+        </swiper-item>
+    </block>
+</swiper>
+<view class='g-detail'>
+    <view class='g-pad'>
+        <view class='g-title'>{{goods.Name}}</view>
+        <view class="clearfix">
+            <view class='g-price'>￥{{goods.Price}}</view>
+            <view class="market-price">￥{{goods.MarketPrice}}</view>
+            <span class="tasting-price" wx:if="{{goods.PromotionalWords}}">{{goods.PromotionalWords}}</span>
+        </view>
+        <view class='g-way clearfix'>
+            <view class='g-fre'>运费：0</view>
+            <view class='g-sales'>月销{{goods.SaleCount}}笔</view>
+        </view>
+    </view>
+    <view class='g-promise'>
+        <image src='../../../img/icon-real.png'></image>
+        <view>正品保证</view>
+    </view>
+    <view class='g-params'>
+        <block wx:if="{{goods.IsGetBargin == 1}}">
+            <navigator url="/pages/bargain/detail/index?id={{goods.BaraginMemberID}}&prepath=mybargain&bargainid={{bargainId}}" hover-class="none">
+                <view class="line-item arrow" wx:if="{{curProty}}">产品属性：{{curProty}}</view>
+            </navigator>
+        </block>
+        <block wx:if="{{goods.IsGetBargin != 1}}">
+            <view class="line-item arrow" bindtap="toggleSku" wx:if="{{curProty}}">产品属性：{{curProty}}</view>
+        </block>
+        <view class="line-item arrow" bindtap="toogleParams">产品参数</view>
+    </view>
+    <!--评价start  -->
+    <view class='g-advance'>
+        <view class='line'></view>
+        <view class='tit'>
+            <image src='../../../img/icon-good.png'></image>
+            <view>评价</view>
+        </view>
+    </view>
+    <view class='g-adinfo'>
+        <view class='g-adtitle'>
+            宝贝评价({{commnetList.length}})
+        </view>
+        <view class="comment-list">
+            <view class='g-adcont' wx:for="{{commnetList}}" wx:key="{{index}}" wx:if="{{commnetList && index < 2}}">
+                <view class='g-usertit'>
+                    <view class='g-userinfo'>
+                        <image src='{{item.Head}}'></image>
+                        <view>{{item.UserName}}</view>
+                    </view>
+                    <view class='g-time'>{{item.CreateTime}}</view>
+                </view>
+                <view class='g-userments'>
+                    {{item.Content}}
+                </view>
+                <view class='g-attr'>
+                    {{item.Attr}}
+                </view>
+            </view>
+            <view class="empty" wx:if="{{!commnetList.length}}">
+                该商品暂无评论
+            </view>
+        </view>
+        <view class='g-view' wx:if="{{commnetList.length}}">
+            <navigator hover-class="none" url="/pages/goods/comment/index?index={{goods.Index}}&number={{goods.Number}}">
+                查看全部评价
+            </navigator>
+        </view>
+    </view>
+    <!--评价结束  -->
+    <!--详情start  -->
+    <view class='g-advance'>
+        <view class='line'></view>
+        <view class='tit'>
+            <image src='../../../img/icon-detail.png'></image>
+            <view>详情</view>
+        </view>
+    </view>
+    <view class="detail">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+    </view>
+</view>
+<!--脚底  -->
+<view class="footer-box">
+    <view class="hr85"></view>
+    <view class='g-store'>
+        <!-- <button open-type="contact" class='pic-text clearbtn' data-store="{{goods.StoreID}}">
+            <image src='../../../img/0812_03.jpg'></image>
+            <view class='text'>客服</view>
+        </button> -->
+        <navigator class='pic-text' data-store="{{goods.StoreID}}" open-type="redirect" url="/pages/store/index?id={{goods.StoreID}}">
+            <image src='../../../img/icon-home.png'></image>
+            <view class='text'>店铺</view>
+        </navigator>
+        <view class='pic-text' bindtap="collect">
+            <block wx:if="{{goods.isCollected}}">
+                <image src='../../../img/0812_05.jpg'></image>
+            </block>
+            <block wx:if="{{!goods.isCollected}}">
+                <image src='../../../img/icon-colect.png'></image>
+            </block>
+            <view class='text'>
+                收藏
+            </view>
+        </view>
+        <block wx:if="{{goods.IsHavingBargin == 1}}">
+            <navigator class='g-car' open-type="redirect" hover-class="none" url="/pages/bargain/list/index">
+                免费拿更多
+            </navigator>
+            <view class='g-buy' bindtap="toggleSku" data-type="1" wx:if="{{goods.IsGetBargin == 0}}">
+                砍价免费拿
+            </view>
+            <navigator class='g-buy bargain-box' url="/pages/bargain/detail/index?id={{goods.BaraginMemberID}}&prepath=mybargain&bargainid={{bargainId}}" hover-class="none" wx:if="{{goods.IsGetBargin == 1}}">
+                <view class="time">距砍价结束仅剩 {{wxTimerList['wxTimer1'].wxTimer}}</view>
+                <view class="go">继续砍价</view>
+            </navigator>
+        </block>
+        <block wx:if="{{goods.IsHavingBargin == 0}}">
+            <view class='g-car' bindtap="toggleSku" data-type="1">
+                加入购物车
+            </view>
+            <view class='g-buy' bindtap="toggleSku" data-type="1">
+                立即购买
+            </view>
+        </block>
+        <!-- {{goods.IsGetBargin == 1 && goods.IsHavingBargin == 0}} -->
+    </view>
+</view>
+<!-- sku弹窗  -->
+<view class="boxBg  {{!isShowDialog? 'popup-enter' : ''}}">
+    <view class="mark" wx:if="{{isShowDialog}}" bindtap="toggleSku"></view>
+    <view class='g-join'>
+        <view class='delete' bindtap="toggleSku">
+            <image src='../../../img/icon-delete.png'></image>
+        </view>
+        <view class='g-car-info'>
+            <view class='pic-text'>
+                <image src="{{goods.DefaultImage}}"></image>
+                <view class='text'>
+                    <view class='price'>￥{{curPrice}}</view>
+                    <view class='inv'>库存 {{curStock}} 件</view>
+                    <view class='inv' wx:if="{{curProty}}">已选：{{curProty}}</view>
+                </view>
+            </view>
+            <view class="pro-attrs">
+                <view class='pro-attr' wx:for="{{goods.LstStandardType}}" wx:key="{{index}}">
+                    <view class='title'>{{item.SName}}</view>
+                    <view class='pro-btn'>
+                        <block wx:for="{{item.LstStandardValue}}" wx:for-item="sku" wx:for-index="skuIndex" wx:key="{{skuIndex}}" wx:if="{{index == 0}}">
+                            <view class="{{item.LstStandardValue.length == 0 || skuSelected0 == skuIndex? 'active': '' }}" 
+                            data-line="{{index}}" 
+                            data-id="{{skuIndex}}" 
+                            data-name ="{{sku.SValue}}"
+                            bindtap="selectSku" 
+                            data-item="{{item}}">
+                                {{sku.SValue}}
+                            </view>
+                        </block>
+                        <block wx:for="{{item.LstStandardValue}}" wx:for-item="sku" wx:for-index="skuIndex" wx:key="{{skuIndex}}" wx:if="{{index == 1}}">
+                            <view class="{{item.LstStandardValue.length == 0 || skuSelected1 == skuIndex? 'active': '' }}" 
+                            data-line="{{index}}" 
+                            data-id="{{skuIndex}}"
+                            data-name ="{{sku.SValue}}"
+                            bindtap="selectSku" 
+                            data-item="{{item}}">
+                                {{sku.SValue}}
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class='pro-num'>
+                <view class='text'>购买数量</view>
+                <view class='btn-num'>
+                    <view class='btn-del' data-type="-1" bindtap="changeQuantity">-</view>
+                    <view class='num'>{{productQuantity}}</view>
+                    <view class='btn-add' data-type="1" bindtap="changeQuantity">+</view>
+                </view>
+            </view>
+        </view>
+        <view class='btn-group'>
+            <block wx:if="{{goods.IsHavingBargin == 0}}">
+                <view data-type="1" bindtap='goBuy'>加入购物车</view>
+                <view data-type="2" bindtap="goBuy">立即购买</view>
+            </block>
+            <view class='g-buy' bindtap="toggleAddrPopup" wx:if="{{goods.IsHavingBargin == 1}}">
+                砍价免费拿
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 产品参数  -->
+<view class="params-container-box {{!isShowparams? 'popup-enter' : ''}}">
+    <view class="mark" wx:if="{{isShowparams}}" bindtap="toogleParams"></view>
+    <view class="params-container">
+        <view class='title'>产品参数</view>
+        <view class='pro-box'>
+            <!-- <view class='item' wx:for="{{goods.LstFlagGroup}}" wx:key="{{index}}">
+                <view>品牌</view>
+                <view>{{goods.Brand}}</view>
+            </view> -->
+            <view class='item' wx:for="{{goods.LstFlagGroup}}" wx:key="index">
+                <view>{{item.FName}}</view>
+                <view>
+                    <text class="sku-item" wx:for="{{item.LstFlagValue}}" wx:for-item="sku" wx:key="index">{{sku.FValue}}</text>
+                </view>
+            </view>
+        </view>
+        <view class='pro-btn' data-type="0" bindtap="toogleParams">完成</view>
+    </view>
+</view>
+<!-- 地址 -->
+<view class="popup {{!isShowAddrPopup? 'popup-enter' : ''}}">
+    <view class="mark" wx:if="{{isShowAddrPopup}}" bindtap="toggleAddrPopup"></view>
+    <view class="con">
+        <view class="title">
+            选择收货地址
+            <image class="close" src="../../../img/close.jpg" bindtap="toggleAddrPopup"></image>
+        </view>
+        <scroll-view scroll-y class="scroll">
+            <view class="adderss-list">
+                <view class="item" wx:for="{{address}}" wx:key="index" data-id="{{item.ID}}" bindtap='chooseAddress'>
+                    <view class="name">
+                        {{item.Name}}
+                        <text>{{item.Mobile}}</text>
+                    </view>
+                    {{item.Address}}
+                </view>
+            </view>
+        </scroll-view>
+        <navigator class="add-btn" url="/pages/center/addrNew/addNew?back=goods" wx:if="{{address.length <= 7}}">添加新地址</navigator>
+    </view>
+</view>

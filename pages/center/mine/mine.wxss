@@ -1,0 +1,213 @@
+page{
+    background: #f4f4f4;
+    color:#000;
+}
+.mine-top .set{
+    position: absolute;
+    right:38rpx;
+    top:20rpx;
+    width:50rpx;
+    height:50rpx;
+    text-align: center;
+}
+.code{
+    position: absolute;
+    top:60rpx;
+    left:460rpx;
+    width:60rpx;
+    height:60rpx;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAMAAAANmfvwAAAAeFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////GqOSsAAAAJ3RSTlMAPOHdHkQieKUrGNrSulbWz7+zr5xwYVo17zAE9sW1joeBTjgSEAagSO9XAAAA1klEQVQ4y+2USRLCIBBFm8SoZFYzx3n697+hAYsQigxbF74Fi1+vCuhuIOZCk3Dq4CE0AaMAQyKhREYUEMDWihiOUBzEfcQAAlakYEphfbT6KzNK6SlyuCJ2kfdRCVCIIQehHIwoJb5zNXu5qb8fRBGnX8I8ri+i2+nVrVV479b2nFFqXlqXboPtZOlsxW5AimZJWXs0q0i04uM4plSFVij2xpQElVSybzo9L/5FNvDBl0bqiXpGadqlwSxwVYr17K3qWp+HpZhfUCgvkTmi4V4tyvNOdh/zti6R8XpFugAAAABJRU5ErkJggg==) center no-repeat;
+    background-size: 34rpx 34rpx;
+    z-index: 10;
+}
+.set-icon{
+    width:38rpx;
+    height:38rpx;
+}
+.mt15{
+    margin-top:15rpx;
+}
+.mine-top{
+    position:relative;
+    height:335rpx;
+    margin-bottom:30rpx;
+}
+.mine-top:after{
+    position:absolute;
+    content:"";
+    top:92rpx;
+    right:67rpx;
+    width:16rpx;
+    height:16rpx;
+    border-top:1px solid #fff;
+    border-right:1px solid #fff;
+    transform: rotate(45deg)
+}
+.top-img{
+    width:100%;
+    height:256rpx;
+}
+.msg-box{
+    position: absolute;
+    width:100%;
+    top:0;
+    left:0;
+    height:250rpx;
+    padding-top:53rpx;
+    padding-left:48rpx;
+}
+.mine-msg{
+    padding-top:10rpx;
+    color:#fff;
+}
+.mine-msg .name{
+    font-size: 30rpx;
+    line-height: 50rpx;
+    font-weight: 700;
+}
+.mine-msg .name .txt{
+    width:260rpx;
+}
+.mine-msg .id{
+    font-size: 24rpx;
+    font-weight: 400;
+}
+.avator{
+    float:left;
+    width:100rpx;
+    height:100rpx;
+    margin-right:37rpx;
+    background: #fff;
+    border-radius: 100rpx;
+    border:1rpx solid #fff;
+}
+.msg-num{
+    position:absolute;
+    bottom:0;
+    width:700rpx;
+    height:154rpx;
+    left:50%;
+    transform:translate(-50%);
+    background: #fff;
+    border-radius: 10rpx;
+    text-align: center;
+    color:#656565;
+    font-size: 24rpx;
+    box-shadow: 0 15px 30px -10px #cecece;
+}
+.msg-num .num{
+    line-height: 1.4;
+    font-size: 48rpx;
+    font-weight: 700;
+    color:#000;
+}
+.msg-num .flex-item{
+    height:80rpx;
+    margin-top:35rpx;
+    border-right:1px solid #ededed;
+}
+.msg-num .flex-item:last-child{
+    border-right:0;
+}
+.title{
+    padding-left:40rpx;
+    font-size: 30rpx;
+    line-height: 72rpx;
+    border-bottom:1px solid #f4f4f4;
+}
+.bor-bottom{
+    border-bottom:1px solid #f4f4f4;
+}
+.icon-box{
+    height:150rpx;
+    text-align: center;
+    font-size: 26rpx;
+
+}
+.icon-box .img{
+    display: block;
+    width:50rpx;
+    height:47rpx;
+    margin: 35rpx auto 15rpx;
+}
+.live{
+    margin-bottom:130rpx;
+}
+.wuliu-item{
+    padding:20rpx 35rpx;
+    font-size: 19rpx;
+    color:#9a9a9a;
+}
+.wuliu-item .time{
+    position:relative;
+    float:left;
+    min-height:60rpx;
+    padding-right:30rpx;
+    border-right:1rpx solid #ccc;
+}
+.wuliu-item .time:after{
+    position:absolute;
+    content:"";
+    top:50%;
+    right:-5rpx;
+    width:10rpx;
+    height:10rpx;
+    border-radius: 10rpx;
+    background:#ccc;
+    transform: translate(0,-50%);
+}
+.wuliu-item .img{
+    width:60rpx;
+    height:60rpx;
+}
+.wuliu-item .tit{
+    color:#f880a3;
+    font-size: 24rpx;
+}
+.popup .con{
+    position: fixed;
+    width:545rpx;
+    height:720rpx;
+    left:50%;
+    top:50%;
+    z-index: 101;
+    background:  #fff;
+    border-radius: 8rpx;
+    transform: translate(-50%,-50%);
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    transform-origin: 50% 50%;
+    opacity:1;
+    display: block;
+}
+.popup.popup-enter .con,
+.popup.popup-leave .con{
+    opacity:0;
+    display: none;
+}
+.popup.popup-enter .mark{
+    opacity: 0;
+}
+.mark{
+    z-index: 100;
+}
+.qrcode{
+    display: block;
+    width:470rpx;
+    height:470rpx;
+    margin:40rpx auto;
+}
+.code-txt{
+    width:300rpx;
+    margin:70rpx auto;
+    font-size: 28rpx;
+    line-height: 50rpx;
+}
+.popup .close{
+    position:absolute;
+    width:88rpx;
+    height:88rpx;
+    left:50%;
+    bottom:-125rpx;
+    transform: translate(-50%);
+}

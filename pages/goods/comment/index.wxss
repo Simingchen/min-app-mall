@@ -1,0 +1,117 @@
+.wrap {
+    background: #f4f4f4;
+    height: 100%;
+}
+
+.dir {
+    position: relative;
+    border-bottom: 1rpx solid #f4f4f4;
+    background: #fff;
+}
+
+.dir .dir-btn {
+    border-left: 4rpx solid #000;
+    border-top: 4rpx solid #000;
+    transform: rotate(-45deg);
+    width: 20rpx;
+    height: 20rpx;
+    position: absolute;
+    left: 30rpx;
+    top: 40rpx;
+}
+
+.dir .title {
+    color: #000;
+    font-size: 33rpx;
+    text-align: center;
+    width: 100%;
+    line-height: 90rpx;
+}
+
+.dir .edit {
+    position: absolute;
+    top: 0;
+    right: 35rpx;
+    color: #666;
+    font-size: 29rpx;
+    line-height: 90rpx;
+    height: 90rpx;
+}
+
+.dir .edit image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.rate {
+    overflow: hidden;
+    padding: 30rpx 35rpx;
+    background: #fff;
+}
+
+.rate .rate-num {
+    float: left;
+}
+
+.rate .rate-num view:first-child {
+    color: #f6819e;
+    font-size: 50rpx;
+}
+
+.rate .rate-num view:last-child {
+    font-size: 29rpx;
+    color: #000;
+}
+
+.rate .num {
+    float: right;
+    font-size: 29rpx;
+    color: #999;
+    line-height: 80rpx;
+}
+
+.env {
+    background: #fff;
+    margin-top: 30rpx;
+}
+
+.env .title {
+    border-bottom: 1rpx solid #e4e4e4;
+    font-size: 29rpx;
+    color: #000;
+    line-height: 70rpx;
+    padding-left: 30rpx;
+}
+
+.env .env-box {
+    padding: 30rpx;
+    border-bottom: 1rpx solid #e4e4e4;
+}
+
+.env .env-box .img {
+    width:50rpx;
+    height:50rpx;
+    border-radius:25rpx;
+    float:left;
+    margin:0 20rpx 0 0;
+}
+.env .env-box .user {
+    overflow: hidden;
+}
+
+.env .env-box .name {
+    color: #000;
+    float: left;
+}
+
+.env .env-box .time {
+    font-size: 25rpx;
+    color: #999;
+    float: right;
+}
+
+.env .env-box .info {
+    font-size: 29rpx;
+    color: #000;
+    line-height: 60rpx;
+}

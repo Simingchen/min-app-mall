@@ -1,0 +1,103 @@
+<view class="top-bar">
+    <view class="con clearfix">
+        <view class="img fl">
+            <image class="avactor" src="{{store.Logo}}"></image>
+        </view>
+        <view class="name fl">{{store.Name}}</view>
+        <!-- <view class="follow-btn fr" data-id="{{store.FromID}}" data-follow="{{store.IsMutualConcern}}" bindtap='saveFollow'>
+            <block wx:if="{{store.IsMutualConcern == 0}}">
+                关注
+            </block>
+            <block wx:if="{{store.IsMutualConcern == 1}}">
+                已关注
+            </block>
+        </view> -->
+    </view>
+</view>
+<view class="nav flex-box">
+    <view class="flex-item {{curTab ==2? 'on': ''}}" data-type="2" bindtap='switchTab'>
+        <text>首页</text>
+    </view>
+    <view class="flex-item {{curTab ==1? 'on': ''}}" data-type="1" bindtap='switchTab'>
+        <text>热销</text>
+    </view>
+    <view class="flex-item {{curTab ==0? 'on': ''}}" data-type="0" bindtap='switchTab'>
+        <text>上新</text>
+    </view>
+    <!-- <view class="flex-item {{curTab ==3? 'on': ''}}" data-type="3" bindtap='switchTab'>
+        <text>动态</text>
+    </view> -->
+</view>
+<!--首页 -->
+<block wx:if="{{curTab == 2}}">
+    <swiper class="top-swiper" indicator-dots="{{topBanner.indicatorDots}}" circular="{{topBanner.circular}}" autoplay="{{topBanner.autoplay}}" interval="{{topBanner.interval}}" duration="{{topBanner.duration}}" indicator-active-color="{{topBanner.activeColor}}"
+        indicator-color="{{topBanner.color}}" wx:if="{{BannerList}}">
+        <block wx:for="{{BannerList}}" wx:key="{{index}}">
+            <swiper-item>
+                <navigator url="{{item.ID}}">
+                    <image src="{{item.File}}" class="slide-image" />
+                </navigator>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="coupon-list clearfix">
+        <view class="item flex-box" wx:for="{{couponList}}" wx:key="{{index}}" wx:if="{{index<4}}">
+            <view class="name">优惠券</view>
+            <view class="price-box">
+                <view class="price">￥ <text>{{item.CouponPrice}}</text></view>
+                <view class="start">满{{item.StartMoney}}可用</view>
+            </view>
+        </view>
+    </view>
+    <view class="hot-goods" wx:if="{{hotGoods.length}}">
+        <view class="title">
+            <view>爆款推荐</view>
+        </view>
+        <view class="goods-list clearfix">
+        <navigator class="item" wx:for="{{hotGoods}}" wx:key="{{index}}" hover-class="none" url="/pages/goods/detail/index?index={{item.Index}}&number={{item.Number}}">
+            <view class="img">
+                <image src="{{item.ImgUrl}}"></image>
+            </view>
+            <view class="con">
+                <view class="name">{{item.Brand}}</view>
+                <view class="tag ellipsis">{{item.Name}}</view>
+                <view class="price">￥{{item.MinPrice}}</view>
+            </view>
+        </navigator>
+    </view>
+    </view>
+</block>
+<!-- 热销 -->
+<block wx:if="{{curTab == 1}}">
+    <view class="goods-list">
+        <navigator class="item" wx:for="{{hotList}}" wx:key="{{index}}" hover-class="none" url="/pages/goods/detail/index?index={{item.Index}}&number={{item.Number}}">
+            <view class="img">
+                <image src="{{item.DefaultImage}}"></image>
+            </view>
+            <view class="con">
+                <view class="name">{{item.Brand}}</view>
+                <view class="tag ellipsis">{{item.Name}}</view>
+                <view class="price">￥{{item.MinPrice}}</view>
+            </view>
+        </navigator>
+    </view>
+</block>
+<!-- 上新 -->
+<block wx:if="{{curTab ==0}}">
+    <view class="new-time" wx:if="{{newestList.length}}">
+        <image src="../../../img/12123_03.jpg"></image>
+        {{TimeRemain}}
+    </view>
+    <view class="goods-list">
+        <navigator class="item" wx:for="{{newestList}}" wx:key="{{index}}" hover-class="none" url="/pages/goods/detail/index?index={{item.Index}}&number={{item.Number}}">
+            <view class="img">
+                <image src="{{item.DefaultImage}}"></image>
+            </view>
+            <view class="con">
+                <view class="name">{{item.Brand}}</view>
+                <view class="tag ellipsis">{{item.Name}}</view>
+                <view class="price">￥{{item.MinPrice}}</view>
+            </view>
+        </navigator>
+    </view>
+</block>

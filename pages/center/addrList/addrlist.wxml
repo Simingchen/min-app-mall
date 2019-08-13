@@ -1,0 +1,47 @@
+<view class="addrList-con">
+    <view class="addrCon">
+        <view class="empty" wx:if="{{!items.length}}">
+            <view class="txt">当前的地址簿为空~  T.T</view>
+            <view class="subTxt">快去添加您的地址簿吧</view>
+            <view class="btn toActive" :class="{disabled : isAddNew}" bindtap="addNewAddr()">添加新地址</view>
+        </view>
+        <block wx:if="{{items.length}}">
+            <view class="list-con">
+                <view class="list-item clearfix {{item.IsDefault? 'default': ''}}" wx:for="{{items}}" wx:key="index">
+                    <view class="receiver-box">
+                        <text>收货人：{{item.Name}}</text>
+                        <text class="fr">{{item.Mobile}}</text>
+                    </view>
+                    <view class="addr-detail">
+                        {{item.Address}}
+                    </view>
+                    <view class="edit-line clearfix">
+                         <view class="fl" wx:if="{{item.IsDefault == 1}}">
+                            <text class="form-checkbox checked"></text>
+                            <text>默认地址</text>
+                        </view>
+                        <view class="fl"  data-id="{{item.ID}}" wx:if="{{item.IsDefault == 0}}" bindtap="setDefault">
+                            <text class="form-checkbox"></text>
+                            <text>设为默认</text>
+                        </view> 
+                        <view class="fr edit-box clearfix">
+                            <view class="fl edit" data-id="{{item.ID}}" bindtap="addNewAddr">
+                                编辑
+                            </view>
+                            <view class="fr delete" data-id="{{item.ID}}" bindtap="delBtn">
+                                删除
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- <view class="p10">
+                已保存了<b class="c58">{{items.length}}</b>条地址，还能保存<b class="c58">{{7-items.length}}</b>条地址
+            </view> -->
+            <view class="bot">
+                <view class="hr22"></view>
+                <button class="addNew" bindtap="addNewAddr" wx:if="!isAddNew">添加新地址</button>
+            </view>
+        </block>
+    </view>
+</view>

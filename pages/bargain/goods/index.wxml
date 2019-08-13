@@ -1,0 +1,138 @@
+<!--index.wxml-->
+<view class='goods'>
+    <view class='g-ban'>
+        <image class="main-img" src='{{goods.GoodsImg}}'></image>
+    </view>
+    <view class='g-detail'>
+        <view class='g-pad'>
+            <view class='g-title'>{{goods.GoodsName}}</view>
+            <view class='g-price'>￥{{goods.MaxPrice}}</view>
+            <view class='g-way'>
+                <view class='g-fre'>运费：0</view>
+                <view class='g-sales' wx:if="{{goods.SaleCount}}">月销{{goods.SaleCount}}笔</view>
+            </view>
+        </view>
+        <view class='g-promise'>
+            <image src='../../../img/icon-real.png'></image>
+            <view>正品保证</view>
+        </view>
+        <view class='g-params'>
+            <view class="line-item arrow" bindtap="toogleParams">产品参数</view>
+        </view>
+        <view class='g-advance'>
+            <view class='line'></view>
+            <view class='tit'>
+                <image src='../../../img/icon-detail.png'></image>
+                <view>详情</view>
+            </view>
+        </view>
+        <view class='g-goodpic tac'>
+            <image src='{{item}}'  wx:for="{{imgList}}" wx:key="index" mode="widthFix"></image>
+        </view>
+    </view>
+    <view class="footer-box">
+        <view class="hr85"></view>
+        <view class='g-store'>
+            <view class='pic-text' data-store="{{goods.GoodsIndex}}">
+                <image src='../../../img/icon-home.png'></image>
+                <view class='text'>店铺</view>
+            </view>
+            <view class='pic-text' bindtap="collect">
+                <image src='../../../img/icon-colect.png'></image>
+                <view class='text'>
+                    <block wx:if="{{goods.isCollected == 'False'}}">收藏</block>
+                    <block wx:if="{{goods.isCollected == 'True'}}">已收藏</block>
+                </view>
+            </view>
+            <navigator class='g-car' hover-class="none" url="/pages/bargain/list/index">
+                免费拿更多
+            </navigator>
+            <view class='g-buy' bindtap="togglePopup" data-type="1">
+                砍价免费拿
+            </view>
+            <view class='g-buy dpn' bindtap="toggleSku" data-type="1">
+                <view>距砍价结束仅剩 18:09:02</view>
+                <view>继续砍价</view>
+            </view>
+        </view>
+    </view>
+    <!-- sku弹窗  -->
+    <view class="boxBg  {{!isShowDialog? 'popup-enter' : ''}}">
+        <view class="mark" wx:if="{{isShowDialog}}" bindtap="toggleSku"></view>
+        <view class='g-join'>
+            <view class='delete' bindtap="toggleSku" bindtap="toggleSku">
+                <image src='../../../img/icon-delete.png'></image>
+            </view>
+            <view class='g-car-info'>
+                <view class='pic-text'>
+                    <image src="{{goods.DefaultImage}}"></image>
+                    <view class='text'>
+                        <view class='price'>￥{{curPrice}}</view>
+                        <view class='inv'>库存 {{curStock}}  件</view>
+                        <view class='inv' wx:if="{{curProty}}">已选：{{curProty}}</view>
+                    </view>
+                </view>
+                <view class='pro-attr' wx:if="{{goods.SkuInfo.length > 0}}">
+                    <view class='title'>产品属性</view>
+                    <view class='pro-btn'>
+                        <view class="{{curSkuId == item.MainID? 'active': '' }}" wx:for="{{goods.SkuInfo}}"  wx:key="index" bindtap="selectSku" data-item="{{item}}">{{item.Name}}</view>
+                    </view>
+                </view>
+                <view class='pro-num'>
+                    <view class='text'>购买数量</view>
+                    <view class='btn-num'>
+                        <view class='btn-del' data-type="-1" bindtap="changeQuantity">-</view>
+                        <view class='num'>{{productQuantity}}</view>
+                        <view class='btn-add' data-type="1" bindtap="changeQuantity">+</view>
+                    </view>
+                </view>
+            </view>
+            <view class='btn-group'>
+                <view bindtap='addCart'>加入购物车</view>
+                <view bindtap="buyNow">立即购买</view>
+            </view>
+        </view>
+    </view>
+    <!-- 产品参数  -->
+    <view class="params-container-box {{!isShowparams? 'popup-enter' : ''}}">
+        <view class="mark" wx:if="{{isShowparams}}" bindtap="toogleParams"></view>
+        <view class="params-container">
+            <view class='title'>产品参数</view>
+            <view class='pro-box'>
+                <view class='item'>
+                    <view>品牌</view>
+                    <view>{{goods.Brand}}</view>
+                </view>
+                <view class='item' wx:for="{{goods.LstStandardType}}" wx:key="index">
+                    <view>{{item.SName}}</view>
+                    <view>
+                        <text class="sku-item" wx:for="{{item.LstStandardValue}}" wx:for-item="sku" wx:key="index">{{sku.SValue}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class='pro-btn' data-type="0" bindtap="toogleParams">完成</view>
+        </view>
+    </view>
+</view>
+<!-- 地址 -->
+<view class="popup {{!isShowPopup? 'popup-enter' : ''}}">
+    <view class="mark" wx:if="{{isShowPopup}}" bindtap="togglePopup"></view>
+    <view class="con">
+        <view class="title">
+            选择收货地址
+            <image class="close" src="../../../img/close.jpg" bindtap="togglePopup"></image>
+        </view>
+        <scroll-view scroll-y class="scroll">
+            <view class="adderss-list">
+                <view class="item" wx:for="{{address}}" wx:key="index" data-id="{{item.ID}}" bindtap='chooseAddress'>
+                    <view class="name">
+                        {{item.Name}}
+                        <text>{{item.Mobile}}</text>
+                    </view>
+                    {{item.Address}}
+                </view>
+            </view>
+        </scroll-view>
+        <navigator class="add-btn" url="/pages/center/addrNew/addNew?back=bargain" wx:if="{{address.length <= 7}}">添加新地址</navigator>
+    </view>
+</view>

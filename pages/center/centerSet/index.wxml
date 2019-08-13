@@ -1,0 +1,11 @@
+<navigator class="line-item arrow clearfix" url="/pages/center/changePass/change">
+    <text class="lab">修改密码</text>
+    <view class="fr" hover-class="none">
+    </view>
+</navigator>
+<navigator class="line-item arrow clearfix" url="/pages/center/changePhone/index">
+    <text class="lab">修改手机号码</text>
+    <view class="fr" hover-class="none">
+    </view>
+</navigator>
+<view class="signout" bindtap="signOut">退出登录</view>

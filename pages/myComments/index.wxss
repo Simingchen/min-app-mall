@@ -1,0 +1,140 @@
+.wrap {
+    background: #e4e4e4;
+    height: 100%;
+}
+
+.dir {
+    position: relative;
+    /* height: 90rpx; */
+    border-bottom: 1rpx solid #f4f4f4;
+    background: #fff;
+}
+
+.dir .dir-btn {
+    border-left: 4rpx solid #000;
+    border-top: 4rpx solid #000;
+    transform: rotate(-45deg);
+    width: 20rpx;
+    height: 20rpx;
+    position: absolute;
+    left: 30rpx;
+    top: 40rpx;
+}
+
+.dir .title {
+    color: #f6819e;
+    font-size: 33rpx;
+    text-align: center;
+    width: 100%;
+    line-height: 90rpx;
+}
+
+.dir .edit {
+    position: absolute;
+    top: 0;
+    right: 35rpx;
+    color: #666;
+    font-size: 29rpx;
+    line-height: 90rpx;
+    height: 90rpx;
+}
+
+.dir .edit image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.chat {
+    background: #fff;
+    margin-bottom: 8rpx;
+}
+
+.chat-user {
+    padding: 20rpx 34rpx;
+    border-bottom: 1rpx solid #e4e4e4;
+}
+
+.chat-user .user {
+    overflow: hidden;
+}
+
+.chat-user .pic {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 25rpx;
+    float: left;
+    background: #ccc;
+    margin-right: 20rpx;
+}
+
+.chat-user .name {
+    color: #000;
+    font-size: 25rpx;
+    line-height: 50rpx;
+    float: left;
+    margin-right: 15rpx;
+}
+
+.chat-user .time {
+    float: right;
+    font-size: 21rpx;
+    line-height: 50rpx;
+    color: #000;
+}
+
+.chat-user .chat-info {
+    font-size: 29rpx;
+    color: #000;
+    margin: 25rpx 0;
+    line-height: 40rpx;
+}
+
+.shop-goods {
+    overflow: hidden;
+    padding: 25rpx 30rpx;
+    border-bottom: 1rpx solid #e4e4e4;
+}
+
+.shop-goods .shop-radio {
+    float: left;
+    position: relative;
+}
+
+.shop-goods .pic {
+    float: left;
+    width: 148rpx;
+    height: 148rpx;
+    border: 1rpx solid #e4e4e4;
+    margin: 0 20rpx;
+}
+
+.shop-goods .shop-info {
+    float: left;
+    width: 450rpx;
+}
+
+.shop-goods .shop-info view:first-child {
+    font-size: 25rpx;
+    line-height: 33rpx;
+    color: #000;
+}
+
+.shop-goods .shop-info view:nth-child(2) {
+    font-size: 20rpx;
+    color: #999;
+    line-height: 40rpx;
+}
+
+.shop-goods .shop-info .price .trust {
+    float: left;
+    font-size: 29rpx;
+    color: #f6819e;
+    line-height: 40rpx;
+}
+
+.shop-goods .shop-info .price .num {
+    float: right;
+    font-size: 25rpx;
+    color: #bfbfbf;
+    line-height: 40rpx;
+}

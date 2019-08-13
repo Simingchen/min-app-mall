@@ -1,0 +1,45 @@
+<view>
+    <view class="hr28"></view>
+    <view class="header flex-box">
+        <view class="flex-item {{item.ID == navCurId? 'on' : ''}}" data-id="{{item.ID}}" wx:for="{{navList}}" wx:key="index" bindtap='switchTab'>
+            <image src="{{item.File}}"></image>
+            <text>{{item.Name}}</text>
+        </view>
+    </view>
+</view>
+<!--轮播图  -->
+<view class='banner'>
+    <swiper class="top-swiper" indicator-dots="{{slide.indicatorDots}}" autoplay="{{slide.autoplay}}" interval="{{slide.interval}}" duration="{{slide.duration}}" indicator-active-color="{{slide.activeColor}}" indicator-color="{{slide.color}}">
+        <block wx:for="{{banner}}" wx:key="{{index}}">
+            <swiper-item>
+                <navigator url="{{item.ID}}">
+                    <image src="{{item.File}}" class="slide-image" />
+                </navigator>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<view class="live-items clearfix">
+    <navigator class="live-item" hover-class="none" wx:for="{{liveList}}" wx:key="index" url="/pages/live/live/index?roomNumber={{item.LiveRoomNumber}}&aid={{item.MID}}">
+        <image class="live-bg" src="{{item.Img}}"></image>
+        <view class="con">
+            <view class="live-top">
+                <image class="live-img" src="{{item.Head}}"></image>
+                <text class="live-name">{{item.LoginName}}</text>
+            </view>
+            <view class="live-bottom">
+                <view class="fl">
+                    <view class="live-tit">{{item.Title}}</view>
+                    <view class="live-bar">
+                        <view class="ico">直播中</view>{{item.OnLine}} 观看
+                    </view>
+                </view>
+                <view class="fr live-like">
+                    <image class="live-heart" src="../../../img/ls_19.png"></image>
+                    <view class="fans">{{item.FansCount}}</view>
+                </view>
+            </view>
+        </view>
+    </navigator>
+    <view class="empty" wx:if="{{!liveList.length}}">暂无相关直播</view>
+</view>

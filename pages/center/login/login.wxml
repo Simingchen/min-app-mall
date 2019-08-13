@@ -1,0 +1,28 @@
+<view class="page login-page">
+    <view class="login-form">
+        <view>
+            <input class="input-row" data-type="user" bindinput="bindInput" type="text" maxlength="30" placeholder="输入手机号"/>
+        </view>
+        <view>
+            <input  class="input-row" data-type="password" bindinput="bindInput" type="password" maxlength="20" placeholder="输入密码"/>
+        </view>
+        <button type="button" class="btn login_btn" bindtap="login">登录</button>
+        <view class="bot clearfix">
+            <navigator class="fl sign" url="/pages/center/register/register" hover-class="none">
+                立即注册
+            </navigator>
+            <navigator class="fr forget" url="/pages/center/forget/forget" hover-class="none">
+                忘记密码?
+            </navigator>
+        </view>
+    </view>
+</view>
+<view class="bottom">
+    <view class="title-box">
+        <view class="tit">第三方一键登录</view>
+    </view>
+    <image class="wechat" src="../../../img/27_03.jpg"></image>
+    <view class="tips">
+        使用即为同意 <navigator class="url">《红货直播平台管理规范》</navigator>
+    </view>
+</view>

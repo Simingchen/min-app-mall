@@ -1,0 +1,3 @@
+<view class='video-box'>
+    <video src="{{video}}"></video>
+</view>

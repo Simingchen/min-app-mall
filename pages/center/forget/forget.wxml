@@ -1,0 +1,19 @@
+<view class="page login-page">
+    <view class="login-form">
+        <view>
+            <input class="input-row" data-type="user" bindinput="checkForm" type="number" maxlength="30" placeholder="输入手机号" />
+        </view>
+        <view class="flex-box input-row">
+            <input class="flex-item input" data-type="code" bindinput="bindInput" type="number" maxlength="30" placeholder="验证码" />
+            <view  data-disabled="{{isDisabled}}" class="sendcode" bindtap='sendCode'>
+                <block wx:if="{{!codeButtonOn}}">
+                    获取验证码
+                </block>
+                <block wx:if="{{codeButtonOn}}">
+                    {{codeTime}}S后再发送
+                </block>
+            </view>
+        </view>
+        <button type="button" class="btn login_btn" bindtap="next">下一步</button>
+    </view>
+</view>

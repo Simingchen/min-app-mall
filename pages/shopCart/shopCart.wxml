@@ -1,0 +1,129 @@
+<view class="shopCart-page">
+    <view class="empty" wx:if="{{isLogin}}">
+        <view class="txt">当前没有登录哦~  T.T</view>
+        <view class="subTxt">快去登录吧</view>
+        <router-link class="btn toActive" to="/login">去登录</router-link>
+    </view>
+    <block wx:if="{{!isLogin}}">
+        <view class="empty" wx:if="{{!cartItems.length}}">
+            <view class="txt">购物车空空如也，快去逛逛吧</view>
+            <a class="btn toActive" to="/goodsList">去逛逛~</a>
+        </view>
+        <view class="edit-bar" wx:if="{{cartItems.length}}">
+            <!-- 删除全选  -->
+            <view class="fl" data-flag="{{isAllSelectDeleted}}" bindtap="allSelectDeleted" wx:if="{{isEditStatus}}">
+                <text class="form-checkbox {{isAllSelectDeleted?'checked':''}}"></text>
+                <text>全选</text>
+            </view>
+            <!-- 购买全选  -->
+            <view class="fl" data-flag="{{isAllSelect}}" bindtap="allSelect" wx:if="{{!isEditStatus}}">
+                <text class="form-checkbox {{isAllSelect?'checked':''}}"></text>
+                <text>全选</text>
+            </view>
+            <view class="edit-btn fr" bindtap="changeEditStatue">{{editTxt}}</view>
+        </view>
+        <view class="page-content" wx:if="{{cartItems.length}}">
+            <view class="shop-item" wx:for="{{cartItems}}" wx:key="{{index}}">
+                <!-- 正常状态 -->
+                <view class='shop-store' data-id="{{item.StoreID}}" data-checked="{{item.checked}}" bindtap="selectShop" wx:if="{{!isEditStatus}}">
+                    <view class="form-checkbox fl {{item.checked? 'checked': ''}}"></view>
+                    <view class='text'>{{item.StoreName}}</view>
+                     <view class='arrow'></view> 
+                </view>
+                <!-- 删除状态 -->
+                <view class='shop-store' data-id="{{item.StoreID}}" data-deleted="{{item.deleted}}" bindtap="selectShopDeleted" wx:if="{{isEditStatus}}">
+                    <view class="form-checkbox fl {{item.deleted? 'checked': ''}}"></view>
+                    <view class='text'>{{item.StoreName}}</view>
+                     <view class='arrow'></view> 
+                </view>
+                <view wx:for="{{item.LstOrderDetails}}" wx:key="{{index}}" wx:for-item="goods">
+                    <view class="item-cart">
+                        <view class="check-container">
+                            <!-- 正常状态 -->
+                            <block wx:if="{{!isEditStatus}}">
+                                <view data-id="{{goods.ID}}" data-item="{{item}}" data-checked="{{goods.checked}}" class="form-checkbox {{goods.checked? 'checked': ''}}" bindtap="selectProduct">
+                                    <text  mark="非编辑"></text>
+                                </view>
+                            </block>
+                            <!-- 删除状态 -->
+                            <block wx:if="{{isEditStatus}}">
+                                <view class="form-checkbox {{goods.deleted? 'checked': ''}}" data-id="{{goods.ID}}" data-item="{{item}}" data-deleted="{{goods.deleted}}" bindtap="selectDeleted">
+                                    <text mark="编辑"></text>
+                                </view>
+                            </block>
+                        </view>
+                        <view class="name-card clearfix">
+                            <image class="thumb" src="{{goods.Img}}" data-item="{{goods}}" bindtap="goUrl"></image>
+                            <view class="detail">
+                                <view class="title ellipsis2" data-item="{{goods}}" bindtap="goUrl">
+                                    {{goods.Name}}
+                                </view>
+                                <!-- 有库存 -->
+                                <view class="p sku ellipsis">
+                                    {{goods.Attr}}
+                                </view>
+                                <!-- <view class="p sku ellipsis" wx:if="{{item.Ys2name}}">
+                                    <text>{{item.Ys2typename}}</text>{{item.Ys2name}}
+                                </view> -->
+                                <view class="p num">
+                                    ×<text class="num-txt">{{goods.Quantity}}</text>
+                                </view>
+                                <view class="price">
+                                ¥{{goods.SingelPrice}}
+                                </view>
+                            </view>
+                        </view>
+                        <!-- 购物车数量编辑块 -->
+                        <block  wx:if="{{isEditStatus}}">
+                            <view class="mui-number">
+                                <text class="decrease" data-id="{{goods.ID}}" data-item="{{item}}" data-type="-1" bindtap="changeQuantity"></text>
+                                <text type="number" class="num">{{goods.Quantity}}</text>
+                                <text class="increase" data-id="{{goods.ID}}" data-item="{{item}}" data-type="1" bindtap="changeQuantity"></text>
+                            </view>
+                        </block>
+                        <!-- <view class="delete-btn" wx:if="{{isEditStatus}}" data-item="{{goods}}" bindtap="singleItemDeleted">
+                            删除
+                        </view> -->
+                    </view>
+                    <!-- 失效删除按钮 -->
+                    <!-- <view class="items-line" wx:if="{{isHaveFailGoods}}">
+                        <text class="fail-del-btn" bindtap="failItemDeleted">删除失效商品</text>
+                    </view> -->
+                </view>
+            </view>
+        </view>
+        <!-- 脚底 -->
+        <view class="footer-box">
+            <view class="subfooter flex-box">
+                <!-- 商品删除 -->
+                <block wx:if="{{isEditStatus}}">
+                    <view class="flex-item">
+                        <view class="footer-checkbox" data-item="{{isAllSelectDeleted}}" bindtap="allSelectDeleted">
+                            <text class="form-checkbox {{isAllSelectDeleted? 'checked': ''}}"></text>
+                            <text>全选</text>
+                        </view>
+                    </view>
+                     <button class="bill-btn {{totalNum2>0? 'on': ''}}" disabled="{{totalNum2 == 0}}" bindtap="goDeleted">
+                        <text>删除 ({{totalNum2}})</text>
+                    </button> 
+                </block>
+                <!-- 商品结算 -->
+                <block wx:if="{{!isEditStatus}}">
+                    <view class="flex-item">
+                        <view class="fl footer-checkbox" data-flag="{{isAllSelect}}" bindtap="allSelect">
+                            <text class="form-checkbox {{isAllSelect? 'checked': ''}}"></text>
+                            <text>全选</text>
+                        </view>
+                        <view class="totalMoney fr">
+                            合计：<text class="c58">¥ {{totalMoney}}</text>
+                            <!-- <text>不含运费</text> -->
+                        </view>
+                    </view>
+                    <button class="bill-btn {{totalNum > 0? 'on':''}}" disabled="{{totalNum == 0}}" bindtap="goPay">
+                        <text>结算 ({{totalNum}})</text>
+                    </button>
+                </block>
+            </view>
+        </view>
+    </block>
+</view>

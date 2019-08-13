@@ -1,0 +1,12 @@
+<view class="logistics-page">
+    <view class="empty" wx:if="{{!express.length}}">
+        <view class="txt">当前物流为空为空~  T.T</view>
+        <view class="subTxt">请耐心等待哦</view>
+    </view>
+    <view class="express-box">
+        <view class="express-item" wx:for="{{express}}" wx:key="{{index}}">
+            <view>{{item.Remark}}</view>
+            <view class="time">{{item.Time}}</view>
+        </view>
+    </view>
+</view>

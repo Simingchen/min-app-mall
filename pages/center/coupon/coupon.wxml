@@ -1,0 +1,15 @@
+<view class="card-list">
+    <view class="card" wx:for="{{items}}" wx:key="index">
+        <view class="title-line">
+            <text class="money">{{item.StartMoney}}元</text>
+            优惠券
+        </view>
+        <view class="txt">
+            服饰类目满{{item.StartMoney}}元即可使用
+        </view>
+        <view class="txt">
+            有效期至 {{item.LoseTime}}
+        </view>
+        <view class="min-btn" data-id="{{item.ID}}" bindtap='getCoupon'>立即领券</view>
+    </view>
+</view>

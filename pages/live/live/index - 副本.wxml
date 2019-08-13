@@ -1,0 +1,74 @@
+<view class="wechat-container">
+    <view class='pic-online'>
+        <view class='line-video'>
+            <live-player class="video" src='rtmp://liveplayer.livevip.com.cn/live/{{video}}' autoplay bindstatechange='statechange' binderror='error'/>
+        </view>
+        <block wx:if="{{isShowAttent}}">
+            <view class='line-op'>
+                <view class='line-show'>
+                    <view class='line-pic'>
+                        <image src='{{live.Head}}'></image>
+                    </view>
+                    <view class='line-info'>
+                        <view class='line-name'>
+                            {{person.Name}}
+                        </view>
+                        <view class='line-num'>
+                            {{person.OnLine}}人观看
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='line-person'>
+                <block wx:for="{{person.attent}}" wx:key="{{index}}" wx:if="{{index <4}}">
+                    <image src='{{item.avator}}'></image>
+                </block>
+                <view class='delBtn' bindtap="hideAttent">X</view>
+            </view>
+        </block>
+        <view class='dyn-op'>
+            <view class='dyn-step'>
+                <!-- <image src='../../../img/wechat.png' bindtap="togglePopup1"></image> -->
+                <!-- <image src='../../../img/love.png'></image> -->
+                <!-- <image src='../../../img/enjoy.png'></image> -->
+            </view>
+            <view class='remark' bindtap='togglePopup'>
+                <!-- <view class="num">2</view> -->
+                <!-- <image src='../../../img/76_03.png'></image> -->
+            </view>
+        </view>
+    </view>
+</view>
+<view class="popup {{!isShowPopup? 'popup-enter' : ''}}">
+    <view class="mark" wx:if="{{isShowPopup}}" bindtap="togglePopup"></view>
+    <view class="con">
+        <view class="title">
+            <image class="img" src=""></image>全部商品 <text class="num"></text>
+            <!-- <image class="close" src="../../../../img/close.jpg" bindtap="togglePopup"></image> -->
+        </view>
+        <scroll-view scroll-y class="scroll" wx:if="{{topic.List.length > 0}}">
+            <view class="adderss-list">
+                <view class="goods-item">
+                    <image class="goods-img" src="{{goods.GoodsImg}}"></image>
+                    <view class="ofh">
+                        <view class="goods-name">{{goods.GoodsName}}</view>
+                        <view class="goods-price">¥ {{goods.MaxPrice}}32</view>
+                        <!-- <view class="goods-cart">加入购物车</view> -->
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="empty" wx:if="{{!topic.List.length}}">
+            暂无关联商品~
+        </view>
+    </view>
+</view>
+<view class="popup send-form {{!isShowPopup1? 'popup-enter' : ''}}">
+    <view class="mark" wx:if="{{isShowPopup1}}" bindtap="togglePopup1"></view>
+    <view class="con">
+        <view class="flex-box form">
+            <input class="flex-item" placeholder='跟主播聊点什么?'></input>
+            <view class="send-btn ">发送</view>
+        </view>
+    </view>
+</view>

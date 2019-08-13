@@ -1,0 +1,74 @@
+page{
+    background: #fff;
+}
+.input-row {
+    width:600rpx;
+    height:75rpx;
+    margin:0 auto;
+    border: 1px solid #f8babd;
+    color: #6c6c6c;
+    border-radius: 75rpx;
+    padding:0 50rpx;
+    line-height:75rpx;
+    margin-bottom:45rpx;
+    font-size: 26rpx;
+    box-sizing: border-box;
+}
+.login-form{
+    padding-top:85rpx;
+}
+.login_btn{
+    width:600rpx;
+    height:75rpx;
+    margin:0 auto;
+    border: 1px solid #f8babd;
+    border-radius: 75rpx;
+    padding:0 50rpx;
+    line-height:75rpx;
+    margin-bottom:45rpx;
+    font-size: 26rpx;
+    color:#fff;
+    background: linear-gradient(90deg, #f69ab0,#f9b7b9,#faccc0);
+    box-shadow: 0px 12px 35px -7px #f9b7b9;
+}
+.bot{
+    width:600rpx;
+    padding:0 17rpx;
+    font-size: 26rpx;
+    margin:0 auto;
+    box-sizing: border-box;
+}
+.sign{
+    color:#f79bb2;
+}
+.bottom{
+    color:#999;
+    position: absolute;
+    width:100%;
+    text-align: center;
+    bottom:40rpx;
+}
+.title-box{
+    position: relative;
+    width:457rpx;
+    margin:0 auto 52rpx;
+    border-bottom:1rpx solid #e1e1e1;
+}
+.title-box .tit{
+    position: absolute;
+    background: #fff;
+    padding:0 12rpx;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.bottom .wechat{
+    width:60rpx;
+    height:60rpx;
+    margin-bottom: 34rpx;
+}
+.tips .url{
+    display: inline-block;
+    background: transparent;
+    color:#f79bb2
+}

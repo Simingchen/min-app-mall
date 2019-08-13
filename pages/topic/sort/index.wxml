@@ -1,0 +1,22 @@
+<view class="top-nav flex-box">
+    <view class="flex-item {{curTab == item.ID? 'on':''}}" data-type="{{item.ID}}" bindtap='switchTab' wx:for="{{sortList}}" wx:key="index">{{item.Name}}</view>
+</view>
+<view class="news-list">
+    <navigator class="item flex-box panel3" wx:for="{{topicList}}" wx:key="{{index}}" url="/pages/topic/detail/index?id={{item.ID}}">
+        <view class="flex-item">
+            <view class="con">
+                <view class="tit ellipsis2">
+                    ＃{{item.Title}}
+                </view>
+                <view class="flex-box between time">
+                    <view class="flex-item">{{item.CreateTime}}</view>
+                    <view class="tar">{{item.Name}} | 阅读量{{item.ViewCount}}</view>
+                </view>
+            </view>
+        </view>
+        <image class="img" mode="aspectFill" src="{{item.FileName}}"></image>
+    </navigator>
+</view>
+<view class="empty" wx:if="{{!topicList.length}}">
+    <view class="txt">暂无话题~</view>
+</view>

@@ -1,0 +1,272 @@
+<view class='search-bar'>
+    <view class="hr28"></view>
+    <view class='search-box flex-box'>
+        <view class='search flex-item'>
+            <navigator url="/pages/goods/search/index" class="input" hover-class="none">搜索商品</navigator>
+        </view>
+        <!-- <view class='chat'>
+            <image src='../../img/0844_03.jpg'></image>
+        </view> -->
+    </view>
+</view>
+<!--轮播图  -->
+<swiper class="top-swiper" indicator-dots="{{topBanner.indicatorDots}}" circular="{{topBanner.circular}}" autoplay="{{topBanner.autoplay}}" interval="{{topBanner.interval}}" duration="{{topBanner.duration}}" indicator-active-color="{{topBanner.activeColor}}"
+    indicator-color="{{topBanner.color}}">
+    <block wx:for="{{topBanner.list}}" wx:key="{{index}}">
+        <swiper-item>
+            <navigator url="/pages/goods/banner/index?id={{item.ID}}">
+                <image src="{{item.File}}" class="slide-image" />
+            </navigator>
+        </swiper-item>
+    </block>
+</swiper>
+<!--操作  -->
+<!-- <view class='h-op'>
+    <view class='scan'>
+        <image src='../../img/icon/icon-scan.png'></image>
+    </view>
+    <view class='search'>
+        <view class='search-btn'>
+            <image src='../../img/icon/icon-search.png'></image>
+        </view>
+        <navigator url="/pages/goods/search/index" class="input" hover-class="none">输入内容</navigator>
+    </view>
+    <view class='dialog-btn'>
+        <image src='../../img/icon/icon-chat.png'></image>
+    </view>
+</view> -->
+<!-- 主入口 -->
+<view class='main-nav clearfix dpn'>
+    <view class='item'>
+        <view class="img">
+            <image src='../../img/icon/icon-htype01.png'></image>
+        </view>
+        <view class='text'>自营</view>
+    </view>
+    <view class='item'>
+        <view class="img">
+            <image src='../../img/icon/icon-htype02.png'></image>
+        </view>
+        <view class='text'>品牌</view>
+    </view>
+    <navigator class='item' hover-class='none' url="/pages/bargain/list/index">
+        <view class="img">
+            <image src='../../img/icon/1_03.jpg'></image>
+        </view>
+        <view class='text'>砍价</view>
+    </navigator>
+    <view class='item'>
+        <view class="img">
+            <image src='../../img/icon/icon-htype04.png'></image>
+        </view>
+        <view class='text'>秒杀</view>
+    </view>
+    <navigator class='item' url="/pages/live/list/index" hover-class="none">
+        <view class="img">
+            <image src='../../img/icon/icon-htype05.png'></image>
+        </view>
+        <view class='text'>红人</view>
+    </navigator>
+    <view class='item'>
+        <view class="img">
+            <image src='../../img/icon/icon-htype06.png'></image>
+        </view>
+        <view class='text'>新品</view>
+    </view>
+    <navigator class='item' hover-class="none" url="/pages/center/coupon/coupon">
+        <view class="img">
+            <image src='../../img/icon/icon-htype07.png'></image>
+        </view>
+        <view class='text'>领劵</view>
+    </navigator>
+    <view class='item'>
+        <view class="img">
+            <image src='../../img/icon/icon-htype08.png'></image>
+        </view>
+        <view class='text'>种草</view>
+    </view>
+</view>
+<!-- 专题 -->
+<view class='panel-subject clearfix'>
+    <navigator class="pic-item" url="/pages/subject/index?id={{item.ID}}" wx:for="{{adList}}" wx:key="{{index}}">
+        <image src='{{item.File}}'></image>
+    </navigator>
+</view>
+<!--话题  -->
+<view class='topic'>
+    <view class='title'>
+        <view class='tit-btn'>{{commentList.tit}} {{commentList.enTit}}</view>
+        <navigator class='more' hover-class='none' url="/pages/topic/list/index">查看更多</navigator>
+    </view>
+    <view class='scroll-list comment-list'>
+        <scroll-view class="scroll" scroll-x="true" style="white-space: nowrap;width:100%;height:390rpx;">
+            <navigator class='item' style='display:inline-block' wx:for="{{commentList.list}}" wx:key="{{index}}" url="/pages/topic/detail/index?id={{item.ID}}" wx:if="{{index < 3}}">
+                <view class='tit'>
+                    ＃{{item.Title}}
+                </view>
+                <view class='subtit'>
+                    {{item.Name}} | 阅读量{{item.ViewCount}}
+                </view>
+                <view class='info ellipsis2'>
+                    {{item.Content}}
+                </view>
+                <view class='pic-list'>
+                    <image src='{{img.Img}}' wx:for="{{item.ImgList}}" wx:for-item="img" wx:key="{{idx}}" wx:for-index="idx" wx:if="{{idx<3}}"></image>
+                </view>
+            </navigator>
+        </scroll-view>
+    </view>
+</view>
+<!--直播精选  -->
+<view class='online-select'>
+    <view class='title'>
+        <view class='tit-btn'>{{live.tit}} {{live.enTit}}</view>
+        <navigator class='more' hover-class="none" url="/pages/live/list/index">
+            查看更多
+        </navigator>
+    </view>
+    <view class='pic-line live-img'>
+        <image wx:if="{{imageUrlPath}}" src='{{imageUrlPath}}/online.jpg'></image>
+    </view>
+    <view class='online-box'>
+        <navigator class='online-item' url="/pages/live/live/index?roomNumber={{item.LiveRoomNumber}}&aid={{item.MID}}" hover-class="none" wx:for="{{live.room}}" wx:key="{{index}}">
+            <view class='online-video'>
+                <image src='{{item.Img}}'></image>
+            </view>
+            <view class='online-info'>
+                <view class='online-name'>{{item.LoginName}}</view>
+                <view class='online-des'>{{item.Title}}</view>
+            </view>
+            <view class='online-tips'>
+                <view class='online-status'>
+                    <icon/>直播中</view>
+                <view class='online-num'>
+                    {{item.FansCount}}
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<!-- 楼层  -->
+<view class='floor' wx:for="{{floorList}}" wx:key="{{index}}">
+    <view class='title'>
+        <view class='tit-btn'>{{item.Name}}</view>
+        <view class='more'>
+            <navigator hover-class="none" url="/pages/goods/list/index?id={{item.Alias}}&sort={{item.CategoryID}}">
+                查看更多
+            </navigator>
+        </view>
+    </view>
+    <block wx:if="{{item.BannerList.length}}">
+        <swiper class="floor-swiper" indicator-dots="{{floorBanner.indicatorDots}}" autoplay="{{floorBanner.autoplay}}" interval="{{floorBanner.interval}}" duration="{{floorBanner.duration}}" indicator-active-color="{{floorBanner.activeColor}}" circular="{{topBanner.circular}}" indicator-color="{{floorBanner.color}}">
+            <swiper-item wx:for="{{item.BannerList}}" wx:for-index="idx" wx:for-item="imgs" wx:key="{{idx}}">
+                <navigator hover-class="none" lazy-load="true" class="slide-image" url="/pages/goods/event/index?id={{imgs.ID}}">
+                    <image src="{{imgs.File}}" width="355" height="150" />
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </block>
+    <view class='two'>
+        <navigator class='pic-text' hover-class="none" url="/pages/goods/detail/index?index={{goods.Index}}&number={{goods.Number}}" wx:for="{{item.GoodsList}}" wx:for-index="idx" wx:for-item="goods" wx:key="{{idx}}" wx:if="{{idx <2}}">
+            <image class='pic' lazy-load="true" src='{{goods.Img}}'></image>
+            <view class='text'>
+                <view>{{goods.BrandName}}</view>
+                <view class="ellipsis">{{goods.Name}}</view>
+                <view>￥{{goods.MinPrice}}</view>
+            </view>
+        </navigator>
+    </view>
+    <scroll-view class="floor-scroll" scroll-x wx:if="{{item.GoodsList.length >2}}">
+        <navigator class="item" hover-class="none" url="/pages/goods/detail/index?index={{goods.Index}}&number={{goods.Number}}" wx:for="{{item.GoodsList}}" wx:for-index="idx" wx:for-item="goods" wx:key="{{idx}}" wx:if="{{idx >1}}">
+            <view class="img">
+                <image class='pic' lazy-load="true" src='{{goods.Img}}'></image>
+            </view>
+            <view class='text'>
+                <view class="name ellipsis">{{goods.Name}}</view>
+                <view class="price">￥{{goods.MinPrice}}</view>
+            </view>
+        </navigator>
+    </scroll-view>
+</view>
+<view class='life'>
+    <view class='title'>
+        <view class='tit-btn'>珠光宝气 JEWELLERY</view>
+    </view>
+    <view class='life-box clearfix'>
+        <navigator class='pic' wx:for="{{lifeList}}" url="/pages/goods/list/index?id={{item.Url}}" hover-class="none" wx:key="{{index}}">
+            <image lazy-load="true" src='{{item.Icon}}'></image>
+        </navigator>
+    </view>
+</view>
+<!--每日好店  -->
+<view class='every day-shop'>
+    <view class='title'>
+        <view class='tit-btn'>每日好店 GOOD SHOP</view>
+        <view class='more'>
+            <navigator hover-class="none" url="/pages/store/list/index">
+                查看更多
+            </navigator>
+        </view>
+    </view>
+    <!--轮播  -->
+    <view class='every-box'>
+        <view class='pic'>
+            <navigator hover-class="none" url="/pages/goods/event/index?id={{recommendShop[0].ID}}">
+                <image lazy-load="true" src='{{recommendShop[0].File}}'></image>
+            </navigator>
+        </view>
+        <view class='pic-list'>
+            <scroll-view class="scroll" scroll-x>
+                <navigator class="scroll-item" url="/pages/store/detail/index?{{item.ID}}" hover-class="none" wx:for="{{recommendShop}}" wx:key="{{index}}" wx:if="{{index > 0}}">
+                    <image src='{{item.File}}'></image>
+                </navigator>
+            </scroll-view>
+        </view>
+    </view>
+</view>
+<!--砍价商品  -->
+<view class='every day-shop'>
+    <view class='title'>
+        <view class='tit-btn'>砍价商品 INEXPENSIVE</view>
+    </view>
+    <view class='pic-line bargain-img'>
+        <navigator hover-class='none' url="/pages/bargain/list/index">
+            <image wx:if="{{imageUrlPath}}" src='{{imageUrlPath}}/1_02.jpg'></image>
+        </navigator>
+    </view>
+    <swiper class="bargain-swipe" wx:if="{{bargain.list.length}}" indicator-dots="{{bargain.indicatorDots}}" autoplay="{{bargain.autoplay}}" circular="{{bargain.circular}}" interval="{{bargain.interval}}" duration="{{bargain.duration}}" current="{{bargain.current}}" bindchange="bargainSwiperChange">
+        <swiper-item class="swipe {{index == bargain.current ? 'active' : ''}}" wx:for="{{bargain.list}}" wx:key="{{index}}">
+            <navigator class="goods" hover-class="none" url="/pages/goods/detail/index?index={{item.GoodsIndex}}&number={{item.GoodsNumber}}&bargain={{item.ID}}">
+                <view class="bg-mark"></view>
+                <view>
+                    <image src="{{item.GoodsImg}}"></image>
+                </view>
+                <view class="name">{{item.GoodsName}}</view>
+                <view class="price">{{item.MaxPrice}}</view>
+                <view class="bargain-btn">砍价免费拿</view>
+            </navigator>
+        </swiper-item>
+    </swiper>
+</view>
+<!--猜您喜欢  -->
+<view class='like'>
+    <view class='title'>
+        <view class='line'></view>
+        <view class='pic-text'>
+            <image src='../../img/icon/icon-love.png'></image>
+            <view class='text'>猜您喜欢</view>
+        </view>
+    </view>
+    <view class='like-box'>
+        <navigator class="item-ans" hover-class="none" wx:for="{{likeGoods}}" wx:key="{{index}}" url="/pages/goods/detail/index?index={{item.Index}}&number={{item.Number}}">
+            <view class="avatar">
+                <image lazy-load="true" class="img" src="{{item.Img}}"></image>
+            </view>
+            <view class="expertInfo">
+                <view class="name">{{item.Brand}}</view>
+                <view class="tag ellipsis">{{item.Name}}</view>
+                <view class="price">￥{{item.Price}}</view>
+            </view>
+        </navigator>
+    </view>
+</view>

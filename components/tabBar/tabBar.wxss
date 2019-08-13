@@ -1,0 +1,58 @@
+/* pages/tabBar/tabBar.wxss */
+
+.menu-item {
+    text-align: center;
+    padding-top: 8rpx;
+}
+
+.menu-item2 text {
+    font-size: 20rpx;
+    display: block;
+    margin-top: 4rpx;
+}
+
+.img {
+    width: 46rpx;
+    height: 42rpx;
+    display: block;
+    margin: 0 auto;
+}
+.center .img{
+    position:absolute;
+    top:-55rpx;
+    left:50%;
+    transform: translate(-50%,0);
+    width:90rpx;
+    height:90rpx;
+}
+.center{
+    padding-top:40rpx;
+    font-size: 22rpx;
+}
+.clear {
+    clear: both;
+}
+
+.tab-bar {
+    z-index: 20;
+    position: fixed;
+    height:100rpx;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding-bottom: 12rpx;
+    padding-top: 20rpx;
+    background-image: linear-gradient(180deg,#faccc0,#f699b0);
+    color:#fff;
+    font-size: 20rpx;
+    text-align: center;
+    box-sizing: border-box;
+}
+.flex-box{
+    display: flex;
+}
+.flex-item{
+    flex:1;
+    position:relative;
+}

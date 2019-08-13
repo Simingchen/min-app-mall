@@ -1,0 +1,167 @@
+<view class="popup {{!isShowPopup? 'popup-enter' : ''}}">
+    <view class="mark" wx:if="{{isShowPopup}}" bindtap="togglePopup"></view>
+    <view class="con">
+        <!-- <canvas canvas-id="qrcode" class="qrcode"></canvas> -->
+        <image src="{{user.LoginInQRCode}}" class="qrcode"></image>
+        <view class="code-txt">
+            <view>请打开设备上的扫一扫</view>
+            <view>将二维码对着设备识别</view>
+        </view>
+        <view class="close-code"></view>
+        <image class="close" src="../../../img/88_07.png" bindtap="togglePopup">
+        </image>
+    </view>
+</view>
+<view class="code" bindtap='togglePopup'></view>
+<navigator class="set dpn" hover-class="none" url="/pages/center/centerSet/index">
+        <image class="set-icon" src="../../../img/5_03.png"></image>
+    </navigator>
+<view class="mine-top">
+    <image class="top-img" src="./img/5_08.jpg"></image>
+    <navigator class="msg-box clearfix flex-box"  hover-class="none" url="/pages/center/editMsg/editMsg">
+        <image class="avator" src="{{user.Head}}"></image>
+        <view class="mine-msg ofh">
+            <view class="name">
+                <view class="txt fl ellipsis">{{user.Name}}</view>
+            </view>
+            <view class="id">我的ID：{{user.Number}}</view>
+        </view>
+    </navigator>
+    <view class="msg-num flex-box bgf">
+        <navigator class="flex-item" hover-class="none" url="/pages/center/followList/index?type=1">
+            <view class="num">{{user.FollowCount}}</view>
+            关注
+        </navigator>
+        <navigator class="flex-item" hover-class="none" url="/pages/center/followList/index?type=2">
+            <view class="num">{{user.FansCount}}</view>
+            粉丝
+        </navigator>
+        <navigator class="flex-item" hover-class="none">
+            <view class="num">{{user.UnReadCount}}</view>
+            消息
+        </navigator>
+    </view>
+</view>
+<view class="middle bgf">
+    <view class="title">
+        个人中心
+    </view>
+    <view class="middle-box flex-box icon-box bor-bottom">
+        <view class="flex-item">
+            <navigator hover-class="none" url="/pages/order/list/index">
+                <image class="img" src="./img/5_17.png"></image>
+                我的订单
+            </navigator>
+        </view>
+        <view class="flex-item">
+            <navigator hover-class="none" url="/pages/shopCart/shopCart">
+                <image class="img" src="./img/5_19.png"></image>
+                购物车
+            </navigator>
+        </view>
+        <view class="flex-item">
+            <navigator hover-class="none" url="/pages/center/coupon/coupon">
+                <image class="img" src="./img/5_21.png"></image>
+                优惠券
+            </navigator>
+        </view>
+    </view>
+    <view class="middle-box flex-box icon-box">
+        <view class="flex-item">
+            <navigator hover-class="none" url="/pages/goods/collect/index">
+                <image class="img" src="./img/5_31.png"></image>
+                我的收藏
+            </navigator>
+        </view>
+        <view class="flex-item">
+            <navigator hover-class="none" url="/pages/bargain/mine/index">
+                <image class="img" src="../../../img/5_07.png"></image>
+                我的砍价
+            </navigator>
+        </view>
+        <view class="flex-item">
+            <navigator hover-class="none" url="/pages/center/myRank/myRank">
+                <image class="img" src="./img/5_53.png"></image>
+                我的等级
+            </navigator>
+        </view>
+        <!-- <view class="flex-item"> -->
+        <!-- <navigator hover-class="none" url="/pages/pcenter/index?id={{user.ID}}">
+                <image class="img" src="./img/5_33.png"></image>
+                发布动态
+            </navigator> -->
+        <!-- </view> -->
+        <!-- <view class="flex-item"> -->
+            <!-- <navigator hover-class="none" url="/pages/goodsCollection/index">
+                <image class="img" src="./img/5_35.png"></image>
+                草稿箱
+            </navigator> -->
+        <!-- </view> -->
+    </view>
+</view>
+<!-- <view class="wuliu bgf mt15">
+    <view class="title">
+        物流追踪
+    </view>
+    <view class="wuliu-box">
+        <view class="wuliu-item clearfix" wx:for="{{wulius}}" wx:for-index="idx" wx:for-item="wuliu" wx:key="index">
+            <view  wx:for="{{wuliu.items}}" wx:for-index="idx" wx:for-item="item" wx:key="{{idx}}">
+                <view class="time fl">
+                    <view>{{item.time}}</view>
+                </view>
+                <view class="clearfix wuliu-msg">
+                    <image class="img fl" src="{{wuliu.img}}"></image>
+                    <view class="wuliu-txt">
+                         <view class="tit">运输中</view> 
+                        <view>{{item.txt}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view> -->
+<!-- <view class="live bgf  mt15">
+    <view class="title">
+        直播中心
+    </view>
+    <view class="live-box flex-box  icon-box bor-bottom">
+        <view class="flex-item">
+            <navigator hover-class="none" url="">
+                <image class="img" src="./img/5_37.png"></image>
+                直播任务
+            </navigator>
+        </view>
+        <view class="flex-item">
+            <navigator hover-class="none" url="">
+                <image class="img" src="./img/5_39.png"></image>
+                预约直播间
+            </navigator>
+        </view>
+        <view class="flex-item">
+            <navigator hover-class="none" url="">
+                <image class="img" src="./img/5_41.png"></image>
+                直播回放
+            </navigator>
+        </view>
+    </view>
+    <view class="live-box flex-box  icon-box bor-bottom">
+        <view class="flex-item">
+            <navigator hover-class="none" url="">
+                <image class="img" src="./img/5_51.png"></image>
+                佣金中心
+            </navigator>
+        </view>
+        <view class="flex-item">
+            <navigator hover-class="none" url="/pages/center/myRank/myRank">
+                <image class="img" src="./img/5_53.png"></image>
+                我的等级
+            </navigator>
+        </view>
+        <view class="flex-item">
+            <navigator hover-class="none" url="">
+                <image class="img" src="./img/5_55.png"></image>
+                历史任务
+            </navigator>
+        </view>
+    </view>
+</view> -->

@@ -1,0 +1,105 @@
+<view class="wrap">
+    <!--收货人地址  -->
+    <navigator class='pic-text' url="/pages/center/addrList/addrlist?back=submit">
+        <image class='pic' src='../../../img/icon/icon-address.png'></image>
+        <view class='info'>
+            <view class='user'>
+                <view class='name'>收货人：{{express.Name}}</view>
+                <view class='phone'>{{express.Mobile}}</view>
+            </view>
+            <view class='address'>
+                <view>收货地址：{{express.Address}}</view>
+                <view class='arrow'></view>
+            </view>
+        </view>
+    </navigator>
+    <view class="border2"></view>
+    <!-- 订单  -->
+    <view class='shop' wx:for="{{order.StoreDetailsList}}" wx:key="{{storeIndex}}" wx:for-index="storeIndex" wx:for-item="store">
+        <!-- 商品 -->
+        <view class='shop-box'>
+            <view class='shop-store'>
+                <view class='select'>
+                    <image src='{{store.StoreLogo}}'></image>
+                </view>
+                <view class='text'>{{store.StoreName}}</view>
+            </view>
+            <view class='shop-goods' wx:for="{{store.DetailsList}}" wx:key="{{goodsIndex}}" wx:for-item="goods">
+                <image src='{{goods.Img}}' class='pic'></image>
+                <view class='shop-info'>
+                    <view class="ellipsis2">{{goods.Name}}</view>
+                    <view>{{goods.Attr}}</view>
+                    <view class='price'>
+                        <view class='trust'>￥<text class="b">{{goods.Price}}</text></view>
+                        <view class='num'>x{{goods.Quantity}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--优惠券 配送方式  -->
+        <view class='shop-pons'>
+            <view class='item' wx:if="{{store.CouponList.length > 0}}">
+                <view class='way'>优惠券</view>
+                <view class='text'>
+                    <picker class="flex-item" bindchange="couponChange" data-index="{{storeIndex}}" range-key="Name" value="{{input['couponIndex' + storeIndex]}}" range="{{store.CouponList}}">
+                        <view class="picker">
+                            <block>{{store.CouponList[input['couponIndex' + storeIndex]].Name}}</block>
+                        </view>
+                    </picker>
+                </view>
+                <view class='arrow'></view>
+            </view>
+            <view class='item'>
+                <view class='way'>配送方式</view>
+                <view class='text'>
+                    <picker class="flex-item" bindchange="bindExpressChange" data-express="{{store.LogistList}}" data-index="{{storeIndex}}" range-key="Name" value="{{input['expressIndex' + storeIndex]}}" range="{{store.LogistList}}">
+                        <view class="picker">
+                            <block>{{store.LogistList[input['expressIndex' + storeIndex]].Name}}</block>
+                            <!-- <block wx:if="{{index == ''}}">请选择</block> -->
+                        </view>
+                    </picker>
+                </view>
+                <view class='arrow'></view>
+            </view>
+            <view class='remark'>
+                <view class='text'>买家留言：</view>
+                <textarea placeholder="选填：对本次交易的说明" name="textarea" data-type="leavemsg" data-index="{{storeIndex}}" bindinput="inputMsg"/>
+            </view>
+            <view class='price-line clearfix'>
+                <view class="item1 freight">(含运费:￥{{store.LogistList[input['expressIndex' + storeIndex]].DefaultPrice}})</view>
+                <view class="item1 price1">￥{{store.TotalPrice - 0 + (store.LogistList[input['expressIndex' + storeIndex]].DefaultPrice - 0)}}</view>
+                <view class="item1">共{{store.DetailsList.length}}件商品 小计：</view>
+            </view>
+        </view>
+    </view>
+    <!--匿名  -->
+    <view class='shop-name'>
+        <view class='text'>匿名购买</view>
+        <switch bindchange="switchChange" color="#f69db1" />
+    </view>
+    <!--合计  -->
+    <view class='shop-total flex-box'>
+        <view class='text flex-item'>
+            合计：<text class='price'>￥{{allPrice}}</text>
+            <text class="fs12">(含运费:￥{{allExpressPrice}})</text>
+        </view>
+        <view class='arrow' bindtap='submitOrder'>提交订单</view>
+    </view>
+</view>
+<!-- 地址 -->
+<view class="popup {{!isShowPayPoup? 'popup-enter' : ''}}">
+    <view class="mark" wx:if="{{isShowPayPoup}}" bindtap="togglePayPoup"></view>
+    <view class="con">
+        <view class="title">
+            支付方式
+            <image class="close" src="../../../img/close.jpg" bindtap="togglePayPoup"></image>
+        </view>
+        <view class="pay-list clearfix">
+            <image class="img" src="../../../img/pay.jpg"></image>
+            微信
+        </view>
+        <view class="pay-bottom">
+            <view class="pay-btn" bindtap="submitOrder">支付</view>
+        </view>
+    </view>
+</view>

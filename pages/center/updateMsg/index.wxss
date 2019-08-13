@@ -1,0 +1,94 @@
+page{
+    background: #eff3f7;
+}
+.top-tit{
+    padding-top:105px;
+    text-align: center;
+}
+.top-tit .h1{
+    font-size: 44rpx;
+    color:#333;
+    line-height: 70rpx;
+}
+.top-tit .h2{
+    font-size: 24rpx;
+    color:#666;
+}
+.input-row {
+    height:87rpx;
+    line-height:87rpx;
+    margin:0 auto;
+    border-bottom: 1rpx solid #d6d6d6;
+    color: #6c6c6c;
+    font-size: 28rpx;
+    box-sizing: border-box;
+}
+.input-row:last-child{
+    border:0;
+}
+input{
+    width:485rpx;
+    height:87rpx;
+    line-height:87rpx;
+}
+.login-form{
+    margin-top:20rpx;
+    padding-left:30rpx;
+    background: #fff;
+}
+.login_btn{
+    width:600rpx;
+    height:75rpx;
+    margin:30rpx auto 0;
+    border: 0;
+    border-radius: 75rpx;
+    padding:0 50rpx;
+    line-height:75rpx;
+    margin-bottom:45rpx;
+    font-size: 26rpx;
+    color:#fff;
+    background: linear-gradient(90deg, #faccc0,#f9b7b9, #f69ab0);
+    box-shadow: 0px 12px 35px -7px #f9b7b9;
+}
+.bot{
+    width:600rpx;
+    padding:0 17rpx;
+    font-size: 26rpx;
+    margin:0 auto;
+    box-sizing: border-box;
+}
+.sign{
+    color:#f79bb2;
+}
+.flex-box{
+    display: flex;
+}
+.flex-item{
+   flex:1;
+}
+.sendcode{
+    width:200rpx;
+    height:60rpx;
+    margin-top:14rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color:#333;
+    font-size: 24rpx;
+    border-radius: 60rpx;
+    background: #f4f4f4;
+}
+.input-row1{
+    width:570rpx;
+    height:75rpx;
+    margin:0 auto;
+    margin-bottom:25rpx;
+}
+.input-row1 .input{
+    width:340rpx;
+    height:75rpx;
+    border-bottom: 1rpx solid #d6d6d6;
+    color: #6c6c6c;
+    line-height:90rpx;
+    font-size: 26rpx;
+    box-sizing: border-box;
+}

@@ -1,0 +1,29 @@
+<view class="line-item clearfix flex-box">
+    <text class="lab">收货人</text>
+    <input data-type="Name" maxlength="10" value="{{user.Name}}" type="text" bindinput="changeMsg" placeholder=""/>
+</view>
+<view class="line-item flex-box clearfix">
+    <text class="lab">联系电话</text>
+    <input data-type="Mobile" maxlength="15" value="{{user.Mobile}}" type="number" bindinput="changeMsg" placeholder=""/>
+</view>
+<view class="line-item flex-box clearfix">
+    <text class="lab">所在城市</text>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+        <view class="picker">
+            {{region[0]}}，{{region[1]}}，{{region[2]}}
+        </view>
+    </picker>
+</view>
+<view class="line-item clearfix">
+    <textarea class="textarea" maxlength="50" value="{{user.Address}}" data-type="Address" bindinput="changeMsg" placeholder="请填写详细地址，不少于5个字" />
+</view>
+<view class="line-item flex-box clearfix last-line" wx:if="{{!addrId}}">
+    <text class="lab">设为默认地址</text>
+    <view>
+        <text class="form-checkbox {{user.isDefault? 'checked': ''}}" bindtap="setDefault"></text>
+    </view> 
+</view>
+<view class="bot">
+    <view class="hr22"></view>
+    <button class="addNew" bindtap="addNewAddr">{{btnTxt}}</button>
+</view>

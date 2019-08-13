@@ -1,0 +1,57 @@
+<wxs src="../../../utils/util.jsutil.wxs" module="tools" />
+<view class="order-page">
+    <view class="address-box bgf" >
+        <!-- 有默认地址 -->
+        <view class="addr-li rel">
+            <view class="flex-box">
+                <text class="flex-item">收货人：{{order.ReceiverName}}</text>
+                <text class="flex-item">{{order.Mobile}}</text>
+            </view>
+            <view class="addr-detail">
+                收货地址：{{order.Address}}
+            </view>
+        </view>
+    </view>
+    <view class="order-box">
+        <view class="order-state">
+            <view>订单编号：{{order.Number}}</view>
+            <view>下单时间：{{order.CreateTime}}</view>
+        </view>
+        <view class="goodsItem" wx:for="{{order.ListOrderDetails}}" wx:key="index">
+            <image class="img" src="{{item.Img}}" width="124" height="124"></image>
+            <view class="con ofh">
+                <view class="tit">{{item.Name}}</view>
+                <view class="item-subtitle sku-box">
+                    <view class="ellipsis">{{item.Attr}}</view>
+                    <view class="num fr">×<text class="num-txt">{{item.Quantity}}</text></view>
+                </view>
+                <view class="price-li">
+                    <text class="price">
+                        ¥{{item.Price}}
+                    </text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bot clearfix">
+        <view class="items-line send-type">
+            配送方式：
+            <text class="fr txt">{{order.LogisticsType}}</text>
+        </view>
+        <view class="items-line leave-msg">
+            <text class="txt">买家留言：</text>
+            <text>{{order.Remark}}</text>
+        </view>
+        <view class="items-line total">
+            共{{order.Count}}商品
+            小计：<text class="cf6">¥{{tools.formatMoney(order.TotalPrice)}}</text>
+        </view>
+    </view>
+    <view class="footer-box">
+        <view class="hr75"></view>
+        <button class="order-btn btn" bindtap="goPay" wx:if="{{order.Status == 0}}">去付款</button>
+        <view class="order-btn btn" wx:if="{{order.Status == 2}}">待发货</view>
+        <button class="order-btn btn" bindtap="certainOrder" wx:if="{{order.Status == 4}}">确认收货</button>
+        <view class="order-btn btn" bindtap="certainOrder" wx:if="{{order.Status == 5}}">已完成</view>
+    </view>
+</view>

@@ -1,0 +1,67 @@
+<view class="top">
+    <view class="avator-box">
+        <image class="avator" src="{{user.Head}}"></image>
+        <view class="sex"></view>
+    </view>
+    <view class="rank">
+        当前等级：{{user.CurrentLevel}}
+    </view>
+    <view class="bar-box">
+        <view class="bar" style="width:{{percentage}}"></view>
+    </view>
+    <view class="data">
+        <view class="fl">当前经验值：{{user.CurrentExperience}}</view>
+        <view class="fr">距离{{user.NextLevel}} 还差：{{user.RequireExperience}}</view>
+    </view>
+</view>
+<view class="up-box">
+    <image class="b" src="./img/13_1203.png"></image>
+    <view >
+        <image class="m" src="./img/13_01236.png"></image>
+    </view>
+</view>
+<view class="card-box clearfix">
+    <view class="card">
+        <image src="./img/13_03.png"></image>
+        <text>多直播</text>
+    </view>
+    <view class="card">
+        <image src="./img/13_05.png"></image>
+        <text>多涨粉</text>
+    </view>
+    <view class="card">
+        <image src="./img/13_07.png"></image>
+        <text>任务评价</text>
+    </view>
+</view>
+<view class="tip">
+    <view class="tit">红货大人小贴士</view>
+    <view class="con">开直播，看直播，完成直播任务，任务完成度越高，升级越快</view>
+</view>
+<view>
+    <image class="reward-tit" src="./img/13_3410.png"></image>
+</view>
+<view class="reward-box clearfix">
+    <view class="reward">
+        <image src="./img/13_12.png"></image>
+        <view class="txt">LV1-3</view>
+    </view>
+    <view class="reward">
+        <image src="./img/13_14.png"></image>
+        <view class="txt">LV1-3</view>
+    </view>
+    <view class="reward">
+        <image src="./img/13_16.png"></image>
+        <view class="txt">LV1-3</view>
+    </view>
+</view>
+<view class="reward-box clearfix last">
+    <view class="reward">
+        <image src="./img/13_21.png"></image>
+        <view class="txt">LV1-3</view>
+    </view>
+    <view class="reward">
+        <image src="./img/13_23.png"></image>
+        <view class="txt">LV1-3</view>
+    </view>
+</view>

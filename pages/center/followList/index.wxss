@@ -1,0 +1,52 @@
+.follow-item{
+    position: relative;
+    height:120rpx;
+    padding-top:24rpx;
+    padding-left:34rpx;
+    border-top:1rpx solid #f4f4f4;
+    background: #fff;
+}
+.follow-item .img {
+    width:80rpx;
+    height:80rpx;
+    margin-right: 28rpx;
+    border-radius: 80rpx;
+    background: #999;
+}
+.txt-con{
+    width:380rpx;
+}
+.tit{
+    font-size: 28rpx;
+}
+.intro{
+    font-size: 24rpx;
+}
+.follow-btn{
+    position: absolute;
+    top:37rpx;
+    right:33rpx;
+    width:132rpx;
+    height:46rpx;
+    text-align: center;
+    line-height: 46rpx;
+    border:1px solid #f7a6b4;
+    border-radius: 46rpx;
+    font-size: 24rpx;
+    color:#f6819e;
+}
+.empty{
+    position: fixed;
+    z-index: 5000;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.empty .txt {
+    font-size: 32rpx;
+    color: #797979;
+    text-shadow: 3px 3px 18px #a7a7a7;
+}

@@ -1,0 +1,24 @@
+page{
+    background: #f4f4f4;
+}
+.edit-box{
+    position:relative;
+}
+.line-item{
+    display: block;
+    height:210rpx;
+    width:100%;
+    background: #fff;
+    border-top:1rpx solid #f4f4f4;
+    padding-left:35rpx;
+    color:#666;
+    line-height: 100rpx;
+    font-size: 27rpx;
+}
+.num{
+    position:absolute;
+    color:#a0a0a0;
+    font-size: 20rpx;
+    right:25rpx;
+    bottom:25rpx;
+}

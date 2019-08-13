@@ -1,0 +1,47 @@
+<view class='search-input'>
+    <view class="input">
+        <navigator open-type="redirect" url="/pages/goods/search/index" hover-class="none">{{name}}</navigator>
+    </view>
+</view>
+<!--类目  -->
+<view class="models bgf" wx:if="{{sortList.length}}">
+        <view class="title">
+            <view class="txt">分类类目</view>
+        </view>
+        <view class="model-list clearfix">
+            <navigator class="model-item" hover-class="none" wx:for="{{sortList}}" wx:key="{{index}}" url="/pages/goods/list/index?id={{item.Alias}}">
+                <image class="pic" src="{{item.Icon}}"></image>
+                <view class="name">{{item.Name}}</view>
+            </navigator>
+        </view>
+    </view>
+<view class="tab-h flex-box" wx:if="{{!name}}">
+    <view class="tab-item flex-item {{currentTab==0?'active':''}} {{isUp && currentTab==0?'up':''}} {{isDown && currentTab==0?'down':''}}" data-current="0" bindtap="switchTab">
+        按销量
+        <view class="arrow"></view>
+    </view>
+    <view class="tab-item flex-item {{currentTab==1?'active':''}} {{isUp && currentTab==1?'up':''}} {{isDown && currentTab==1?'down':''}}" data-current="1" bindtap="switchTab">
+        按信用
+        <view class="arrow"></view>
+    </view>
+    <view class="tab-item flex-item {{currentTab==2?'active':''}} {{isUp && currentTab==2?'up':''}} {{isDown && currentTab==2?'down':''}}" data-current="2" bindtap="switchTab">
+        按价格
+        <view class="arrow"></view>
+    </view>
+</view>
+<!--列表  -->
+<view class="goods-list clearfix">
+    <navigator class="item-ans" hover-class="none" url="/pages/goods/detail/index?index={{goods.Index}}&number={{goods.Number}}" wx:for="{{goodsList}}" wx:key="{{index}}" wx:for-item="goods">
+        <view class="avatar">
+            <image class="img" src="{{goods.Img}}"></image>
+        </view>
+        <view class="expertInfo">
+            <!-- <view class="name">GUCCI/古奇</view> -->
+            <view class="tag ellipsis">{{goods.Name}}</view>
+            <view class="price">￥{{goods.Price}}</view>
+        </view>
+    </navigator>
+</view>
+<view class="empty" wx:if="{{!goodsList.length && name}}"> 
+    <view class="txt">暂无对应商品~</view>
+</view>

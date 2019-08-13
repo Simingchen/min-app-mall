@@ -1,0 +1,49 @@
+<view class='online'>
+    <view class='online-title'>
+        <view class='online-solid'></view>
+        <view class='text'>直播中</view>
+    </view>
+    <view class='online-box'>
+        <navigator class='online-item' wx:for="{{liveList}}" wx:key="index" url="/pages/live/live/index?roomNumber={{item.LiveRoomNumber}}&aid={{item.MID}}">
+            <view class='online-video'>
+                <image src='{{item.Img}}'></image>
+            </view>
+            <view class='online-info'>
+                <view class='online-name'>{{item.LoginName}}</view>
+                <view class='online-des'>{{item.Title}}</view>
+            </view>
+            <view class='online-tips'>
+                <view class='online-status'>
+                    <icon/>直播中</view>
+                <view class='online-num'>
+                    <image src="../../../img/person.png"></image>
+                    {{item.OnLine}}
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view class='online reback'>
+    <view class='online-title'>
+        <view class='online-solid'></view>
+        <view class='text'>精彩回放</view>
+    </view>
+    <view class='online-box' >
+        <navigator class='online-item' url="/pages/live/playback/index?id={{item.ID}}" wx:for="{{videoList}}" wx:key="index">
+            <view class='online-video'>
+                <image src='{{item.Image}}'></image>
+            </view>
+            <view class='online-info'>
+                <view class='online-name'>{{item.VideoName}}</view>
+                <view class='online-des'>{{item.Person}}</view>
+            </view>
+            <view class='online-tips'>
+                <view class='online-status'><icon/>回放</view>
+                <view class='online-num'>
+                    <image src="../../../img/person.png"></image>
+                    {{item.Person}}
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>

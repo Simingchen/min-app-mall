@@ -1,0 +1,116 @@
+page {
+    background: #f4f4f4;
+}
+.logistics-page .empty {
+    padding-top: 30rpx;
+    text-align: center;
+}
+
+.logistics-page .empty .txt {
+    font-size: 32rpx;
+    margin-bottom: 10rpx;
+    color: #666;
+}
+
+.logistics-page .empty .subTxt {
+    margin-bottom: 20px;
+    color: #999;
+}
+
+.logistics-page .empty .btn {
+    display: block;
+    width: 5.2rem;
+    height: 1.8rem;
+    border: 1px solid #ec584e;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 1.8rem;
+    margin: 0 auto;
+    color: #ec584e;
+    font-size: 12px;
+}
+
+.logistics-page .order-addr {
+    padding: 10px;
+    background-color: #fff;
+    margin: 10px 0;
+}
+
+.logistics-page .order-addr .iconfont {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.logistics-page .items {
+    padding: 10px;
+    background-color: #fff;
+}
+
+.logistics-page .items li {
+    padding: 5px 0;
+}
+
+.logistics-page .items li:first-child {
+    color: green;
+}
+
+.logistics-page .items .time {
+    font-size: 12px;
+}
+
+.express-top{
+    border-top:1rpx solid #f4f4f4;
+    background: #fff;
+    padding-top:27rpx;
+    padding-bottom:27rpx;
+    padding-left:34rpx;
+}
+.express-top .img{
+    border-top:1rpx solid #f4f4f4;
+    float:left;
+    width:150rpx;
+    height:150rpx;
+    margin-right:27rpx;
+}
+.express-con{
+    font-size: 24rpx;
+    line-height: 36rpx;
+}
+.express-con .first{
+    font-size: 27rpx;
+    line-height: 40rpx;
+    color:#f7809c;
+}
+.express-item{
+    position:relative;
+    font-size: 28rpx;
+    color:#666;
+    border-left:1px solid #f7809c;
+    padding-left:44rpx;
+    line-height: 36rpx;
+    padding-top:40rpx;
+    padding-right:40rpx;
+}
+.express-item:last-child{
+    padding-bottom:40rpx;
+}
+.express-item:before{
+    position:absolute;
+    content:"";
+    left:-10rpx;
+    top:50%;
+    transform: translate(0, 50%);
+    width:19rpx;
+    height:19rpx;
+    border-radius: 19rpx;
+    background: #f7809c;
+}
+.express-item .time{
+    font-size: 20rpx;
+    line-height: 42rpx;
+}
+.express-box{
+    margin-top:12rpx;
+    padding-left:54rpx;
+    background: #fff;
+}

@@ -1,0 +1,26 @@
+<view class="wrap">
+   <!--评论  -->
+   <view class='chat' wx:for="{{commentList}}" wx:key="{{index}}">
+       <view class='chat-user'>
+            <view class='user'>
+                <image class='pic' src='{{item.Head}}'></image>
+                <view class='name'>{{item.UserName}}</view>
+                <view class='time'>{{item.CreateTime}}</view>
+            </view>
+            <view class='chat-info'>
+                {{item.Content}}
+            </view>
+       </view>
+        <view class='shop-goods'>
+            <image src='{{item.ImgUrl}}' class='pic'></image>
+            <view class='shop-info'>
+                <view>{{item.GoodsName}}</view>
+                <!-- <view>属性：40码</view> -->
+                <view class='price'>
+                    <view class='trust'>￥{{item.Price}}</view>
+                    <view class='num'>已好评</view>
+                </view>
+            </view>
+        </view>
+   </view>
+</view>

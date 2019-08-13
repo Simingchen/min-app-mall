@@ -1,0 +1,93 @@
+.top-nav{
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 27rpx;
+    color:#000;
+    text-align: center;
+    border-bottom: 1rpx solid #e5e5e5;
+    background: #fff;
+}
+.top-nav .on{
+    color:#f87fa0;
+    border-bottom: 1rpx solid #f87fa0;
+}
+.news-list .item{
+    padding: 24rpx 30rpx;
+    height:228rpx;
+    border-bottom: 2rpx solid #f4f4f4;
+    background: #fff;
+}
+.news-list .item .img{
+    width:180rpx;
+    height:180rpx;
+    border-radius: 6rpx;
+}
+.news-list .item .con{
+    width:470rpx;
+}
+.news-list .item .tit{
+    position: relative;
+}
+.news-list .item .txt{
+    font-weight: 600;
+    color:#000;
+    font-size: 32rpx;
+    width:410rpx;
+}
+.news-list .item .desc{
+    height:70rpx;
+    line-height: 34rpx;
+}
+.news-list .item .time{
+    margin-top:27rpx;
+    color:#999;
+    font-size: 24rpx;
+}
+.tag{
+    position: absolute;
+    top:0;
+    right:0;
+    display: inline-block;
+    width:72rpx;
+    height:32rpx;
+    margin-left: 10rpx;
+    text-align: center;
+    line-height: 32rpx;
+    color:#fff;
+    background: #f87fa0;
+    font-size: 24rpx;
+    border-radius: 32rpx;
+}
+.sort{
+    padding-left:33rpx;
+    background: #fff;
+}
+.sort .item image{
+    float:left;
+    margin-right: 25rpx;
+    margin-bottom:25rpx;
+    width:330rpx;
+    height:180rpx;
+}
+.sort .title{
+    color:#000;
+    font-weight: 600;
+    line-height: 82rpx;
+}
+.sort-list{
+    margin-top:12rpx;
+    background: #fff;
+}
+.sort-list .title{
+    padding-left:33rpx;
+    color:#000;
+    font-weight: 600;
+    line-height: 70rpx;
+    border:2rpx solid #f4f4f4;
+}
+.sort-list .item .time{
+    margin-top:60rpx;
+}
+.sort-list .item .tit{
+    height:80rpx;
+}

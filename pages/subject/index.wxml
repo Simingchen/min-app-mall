@@ -1,0 +1,22 @@
+<import src="../../wxParse/wxParse.wxml"/> 
+<image class="top-img" mode="widthFix" src="{{info.File}}">
+</image>
+<view class="con">
+    <view class="title">{{info.Title}}</view>
+    <view class="time">{{info.CreateTime}}</view>
+</view>
+<view class="detail" bindtap="goUrl">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+</view>
+<!-- <view class="list">
+    <navigator class="goods-item flex-box" hover-class="none" wx:for="{{info.List}}"  wx:key="{{index}}" url="/pages/goods/detail/index?index={{item.Index}}&number={{item.Number}}">
+        <image class="img" src="{{item.Img}}"></image>
+        <view class="flex-item">
+            <view class="name ellipsis2">{{item.Name}}</view>
+            <view class="price">￥ {{item.Price}}</view>
+            <view class="join">
+                <image src="../../img/75_03.png"></image>
+            </view>
+        </view>
+    </navigator>
+</view> -->

@@ -1,0 +1,41 @@
+page{
+    background: #f4f4f4;
+    padding-bottom:40rpx;
+}
+.card{
+    position:relative;
+    width:715rpx;
+    height:162rpx;
+    padding-top:20rpx;
+    padding-left:35rpx;
+    margin:20rpx auto 0;
+    border-radius: 10rpx;
+    color:#fff;
+    background-image: linear-gradient(90deg,#f69db1,#faccbf);
+    box-sizing: border-box;
+}
+.card .money{
+    font-size: 48rpx;
+    line-height: 68rpx;
+    font-weight: bold;
+}
+.title-line{
+    font-size: 32rpx;
+}
+.card .txt{
+    font-size: 24rpx;
+    line-height: 26rpx;
+}
+.min-btn{
+    position:absolute;
+    top:57rpx;
+    right:28rpx;
+    width:175rpx;
+    height:54rpx;
+    text-align: center;
+    line-height: 54rpx;
+    font-size: 27rpx;
+    color:#f6819e;
+    background: #fff;
+    border-radius: 54rpx;
+}

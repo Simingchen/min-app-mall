@@ -1,0 +1,68 @@
+/* pages/center/editMsg/editMsg.wxss */
+page{
+    background: #f4f4f4;
+}
+.lh100{
+    line-height: 100rpx;
+}
+.mt40{
+    margin-top:40rpx;
+}
+.tar{
+    text-align: right
+}
+.avator{
+    width:64rpx;
+    height:64rpx;
+    margin-top:20rpx;
+    background: #999;
+    border-radius: 64rpx;
+}
+.line-item{
+    background: #fff;
+    border-top:1rpx solid #f4f4f4;
+    padding-left:35rpx;
+    padding-right:65rpx;
+    color:#666;
+    line-height: 100rpx;
+    font-size: 27rpx;
+}
+.line-item.arrow{
+    position:relative;
+}
+.line-item.arrow:before{
+     position:absolute; 
+    content:"";
+    right:33rpx;
+    top:45rpx;
+    width:15rpx;
+    height:15rpx;
+    border-top:3rpx solid #666;
+    border-right:3rpx solid #666;
+    transform: rotate(45deg);
+}
+.line-item .lab{
+    float:left;
+    line-height: 100rpx;
+    height: 100rpx;
+    color:#000;
+}
+.flex-box{
+    display: flex;
+}
+.flex-box .flex-item{
+    flex:1;
+}
+.flex-box .flex-item .picker{
+    width:100%;
+    text-align: right
+}
+.flex-box input{
+    text-align: right;
+    flex:1;
+    height:100rpx;
+    line-height: 100rpx; 
+}
+.sign text{
+    line-height: 100rpx;
+}

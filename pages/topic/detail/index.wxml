@@ -1,0 +1,67 @@
+<import src="../../../wxParse/wxParse.wxml"/>
+<view class="follow-item">
+    <view class="flex-box">
+        <image class="img" src="{{topic.Head}}"></image>
+        <view class="flex-item">
+            <view class="txt-con">
+                <view class="tit">{{topic.Name}}</view>
+                <view class="intro ellipsis">{{topic.Introduce}} </view>
+            </view>
+        </view>
+        <view class="follow-btn" data-id="{{topic.MID}}" data-follow="{{topic.IsFollow}}" bindtap='saveFollow'>
+            <block wx:if="{{topic.IsFollow == 0}}">
+                关注
+            </block>
+            <block wx:if="{{topic.IsFollow == 1}}">
+                已关注
+            </block>
+        </view>
+    </view>
+</view>
+<view class="banner">
+    <image mode='widthFix' src="{{topic.File}}"></image>
+</view>
+<view class='dyn-op clearfix'>
+    <view class='dyn-step fl'>
+        <image src="{{topic.IsLike == 1?'../../../img/love.png':'../../../img/0896_03.png'}}" data-id="{{topic.ID}}" bindtap='likeTopic'></image>
+        <image src='../../../img/wechat.png' data-id="{{topic.ID}}" bindtap='toChat'></image>
+        <!-- <image src='../../../img/enjoy.png'></image> -->
+    </view>
+    <view class='remark fr' bindtap='togglePopup'>
+        <image src='../../../img/76_03.png'></image>
+    </view>
+</view>
+<view class="topic bgf">
+    <view>
+        <image class="avator" wx:for="{{topic.LikeList}}" wx:key="{{index}}" src="{{item.Head}}"></image>
+    </view>
+    <view class="title">{{topic.Title}}</view>
+    <view class="tag">#褚昂岱第三方#</view>
+    <view class="detail">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+    </view>
+</view>
+<view class="popup {{!isShowPopup? 'popup-enter' : ''}}">
+    <view class="mark" wx:if="{{isShowPopup}}" bindtap="togglePopup"></view>
+    <view class="con">
+        <view class="title">
+            <image class="img" src=""></image>全部商品 <text class="num"></text>
+            <!-- <image class="close" src="../../../../img/close.jpg" bindtap="togglePopup"></image> -->
+        </view>
+        <scroll-view scroll-y class="scroll" wx:if="{{topic.List.length > 0}}">
+            <view class="adderss-list">
+                <view class="goods-item" wx:for="{{topic.List}}" wx:key="{{index}}">
+                    <image class="goods-img" src="{{item.Img}}"></image>
+                    <view class="ofh">
+                        <view class="goods-name">{{item.Name}}</view>
+                        <view class="goods-price">¥ {{item.Price}}</view>
+                        <view class="goods-cart" bindtap='goUrl' data-index="{{item.Index}}" data-number="{{item.Number}}">查看详情</view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="empty" wx:if="{{!topic.List.length}}">
+            暂无关联商品~
+        </view>
+    </view>
+</view>

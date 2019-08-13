@@ -1,0 +1,157 @@
+page{
+    background: #fff;
+}
+.top{
+    height:335rpx;
+    padding-top:45rpx;
+    background-image: linear-gradient(90deg,#f39e8a,#ec7690);
+    box-sizing: border-box;
+}
+.avator-box{
+    position: relative;
+    margin:0 auto;
+    width:100rpx;
+    height:100rpx;
+}
+.avator-box image{
+    width:100rpx;
+    height:100rpx;
+    border-radius: 100rpx;
+    border:1rpx solid #fff;
+}
+.avator-box .sex{
+    position: absolute;
+    bottom:0;
+    right:-5rpx;
+    width:30rpx;
+    height:30rpx;
+    background: #fff;
+    font-size: 14rpx;
+    line-height: 30rpx;
+    text-align: center;
+    color:#ee8e8f;
+    border-radius: 30rpx;
+}
+.rank{
+    margin-top:20rpx;
+    margin-bottom:30rpx;
+    text-align: center;
+    font-size: 27rpx;
+    color:#fff;
+    line-height: 1;
+}
+.bar-box{
+    width:585rpx;
+    height:11rpx;
+    margin:0 auto;
+    background: #fff;
+    border-radius: 11rpx;
+    overflow: hidden;
+}
+.bar-box .bar{
+    width:30rpx;
+    height:11rpx;
+    background: #fee554;
+    border-radius: 11rpx;
+}
+.top .data{
+    width:665rpx;
+    margin:15rpx auto 0;
+    color:#fff;
+    font-size: 24rpx;
+}
+.up-box .b{
+    display:block;
+    margin:60rpx auto 0;
+    width:490rpx;
+    height:88rpx;
+}
+.up-box .m{
+    display:block;
+    margin:0 auto;
+    width:327rpx;
+    height:36rpx;
+}
+.card-box{
+    padding-left:16rpx;
+    margin-top:50rpx;
+}
+.card-box .card{
+    width:230rpx;
+    float:left;
+    margin-right:14rpx;
+    position:relative;
+    color:#fff;
+    font-size: 27rpx;
+    text-align: center;
+}
+.card-box .card image{
+    width:230rpx;
+    height:287rpx;
+}
+.card-box .card text{
+    position:absolute;
+    top:190rpx;
+    width:230rpx;
+    left:0;
+}
+.tip{
+    width:720rpx;
+    height:140rpx;
+    margin:22rpx auto 0;
+    border:5rpx solid #a0b6e5;
+    border-radius: 20rpx;
+    text-align: center;
+    box-sizing: border-box;
+}
+.tip .tit{
+    padding-top:15rpx;
+    color:#000;
+    font-size: 27rpx;
+    line-height: 56rpx;
+}
+.tip .con{
+    color:#000;
+    font-size: 20rpx;
+}
+.reward-tit{
+    display:block;
+    width:194rpx;
+    height:32rpx;
+    margin:62rpx auto 42rpx;
+}
+.reward-box{
+    padding-left:15rpx;
+}
+.reward-box .reward{
+    position: relative;
+    width:230rpx;
+    height:115rpx;
+    float:left;
+    margin-right: 14rpx;
+    margin-bottom: 14rpx;
+}
+.reward-box .reward image{
+    width:230rpx;
+    height:115rpx;
+}
+
+.reward-box .reward image{
+    width:230rpx;
+    height:115rpx;
+}
+.reward-box .reward .txt{
+    position: absolute;
+    width:110rpx;
+    right:30rpx;
+    top:50rpx;
+    color:#fff;
+    font-size: 24rpx;
+    font-weight: 600;
+    text-align: right;
+    line-height: 1;
+}
+.reward-box.last{
+    padding-left:140rpx;
+    margin-bottom:170rpx;
+}

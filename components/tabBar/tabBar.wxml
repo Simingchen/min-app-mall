@@ -1,0 +1,10 @@
+<!--pages/tabBar/tabBar.wxml-->
+ <view class="tab-bar flex-box clearfix">
+    <block wx:for="{{items}}" wx:key="{{index}}">
+        <view data-url="{{item.pagePath}}" class="flex-item" data-index="{{index}}" bindtap="setItems">
+            <image src="{{item.selectedIconPath}}" wx:if="{{item.active}}" class="img"></image>
+            <image src="{{item.iconPath}}" wx:if="{{!item.active}}" class="img"></image>
+            <text>{{item.text}}</text>
+        </view>
+    </block>
+</view> 

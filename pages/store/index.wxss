@@ -1,0 +1,184 @@
+page{
+    background: #fff;
+}
+.top-bar{
+    position: relative;
+    height:450rpx;
+    background-image: linear-gradient(180deg,#f69db1,#faccbf9c);
+}
+.top-bar .con{
+    padding:30rpx;
+}
+.top-bar .img{
+    width:80rpx;
+    height:80rpx;
+    margin-right: 10rpx;
+    overflow: hidden;
+    border-radius: 80rpx;
+    border:2rpx solid #fff;
+}
+.top-bar .avactor{
+    width:80rpx;
+    height:80rpx;
+    background: #f4f4f4;
+}
+.top-bar .name{
+    line-height: 80rpx;
+    color:#fff;
+    font-weight: 700;
+    font-size: 30rpx;
+}
+.follow-btn{
+    position: absolute;
+    top:37rpx;
+    right:33rpx;
+    width:125rpx;
+    height:50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 50rpx;
+    color:#f6819e;
+    background: #fff;
+}
+.nav{
+    position: relative;
+    height:90rpx;
+    margin-top:-200rpx;
+    padding: 0 30rpx;
+    text-align: center;
+    color:#fff;
+}
+.nav .flex-item.on text{
+    padding-bottom:25rpx;
+    font-weight: 600;
+    border-bottom:4rpx solid #fff;
+}
+.top-swiper{
+    position: relative;
+    width:690rpx;
+    height:300rpx;
+    margin:0 auto;
+    background: #999;
+    overflow: hidden;
+    border-radius: 8rpx;
+}
+.top-swiper image {
+    width: 750rpx;
+    height: 360rpx;
+}
+.coupon-list{
+    padding:30rpx;
+    position: relative;
+}
+.coupon-list .item{
+    float:left;
+    width:222rpx;
+    height:100rpx;
+    margin-right: 12rpx;
+    color:#fff;
+    background: #f6819e;
+    border-radius: 8rpx;
+}
+.coupon-list .item:nth-child(3){
+    margin-right: 0;
+}
+.coupon-list .item .name{
+    width:70rpx;
+    padding: 17rpx 25rpx 0;
+    border-right: 1rpx solid #fff;
+    line-height: 24rpx;
+    font-size: 20rpx;
+}
+.coupon-list .item .price-box{
+    padding-left:20rpx;
+    padding-top:20rpx;
+    font-size: 18rpx;
+}
+.coupon-list .item .price{
+    line-height: 1;
+}
+.coupon-list .item text{
+    font-size: 36rpx;
+    font-weight: 700;
+}
+.coupon-list .item .start{
+    font-size: 20rpx;
+}
+.new-time{
+    position: relative;
+    width:266rpx;
+    height:50rpx;
+    padding-left:46rpx;
+    margin:0 auto 20rpx;
+    line-height: 50rpx;
+    border-radius: 50rpx;
+    font-size: 22rpx;
+    color:#333;
+    background: #fff;
+}
+.new-time image{
+    float:left;
+    width:26rpx;
+    height:26rpx;
+    margin-right: 10rpx;
+    padding-top:12rpx;
+}
+.goods-list{
+    position: relative;
+    margin-top:70rpx;
+}
+.goods-list .item{
+    float:left;
+    width:340rpx;
+    height:490rpx;
+    margin-left:23rpx;
+    background: #fff;
+    border-radius: 6rpx;
+    overflow: hidden;
+    text-align:center;
+}
+.goods-list .item .img{
+    height:340rpx;
+    overflow: hiiden;
+}
+.goods-list .item .con{
+    padding-top:20rpx;
+    line-height:40rpx;
+}
+.goods-list .item image{
+    width:340rpx;
+    height:340rpx;
+    background: #f4f4f4;
+}
+.goods-list .item .name{
+    font-size:25rpx;
+    color:#000;
+}
+.goods-list .item .tag{
+    font-size:25rpx;
+    color:#a9a9a9;
+}
+.goods-list .item .price{
+    font-size:29rpx;
+    color:#f6819e;
+}
+.hot-goods{
+    padding-top:30rpx;
+    position: relative;
+}
+.hot-goods .title{
+    position: absolute;
+    width:217rpx;
+    height:2rpx;
+    background: #999;
+    left:50%;
+    transform: translate(-50%);
+}
+.hot-goods .title view{
+    width:157rpx;
+    margin: -17rpx auto 0;
+    text-align: center;
+    color:#333;
+    font-weight: 600;
+    background: #fff;
+}   

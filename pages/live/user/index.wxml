@@ -1,0 +1,109 @@
+<view class='head-box'>
+    <view class='h-cover'>
+        <image src='http://img2.imgtn.bdimg.com/it/u=4265041893,1158733659&fm=26&gp=0.jpg'></image>
+    </view>
+    <view class='h-info'>
+        <view class='h-pic'>
+            <image src='{{user.Head}}'></image>
+        </view>
+        <view class='h-name'>
+            {{user.Name}}
+        </view>
+        <view class='h-fans'>
+            <view>{{user.FollowCount}}</view>
+            关注
+            <view>{{user.FansCount}}</view>
+            粉丝
+        </view>
+        <view class='h-op'>
+            <view class='h-has'>
+                <block wx:if="{{user.IsFollow}}">已</block>关注
+            </view>
+            <view class='h-priv'>私信</view>
+        </view>
+    </view>
+</view>
+<view class='pic-tab'>
+    <view class="tab">
+        <view class="tab-left">
+            <view class="{{curTab==0? 'active' : ''}}" data-id="0" bindtap="switchTab">动态</view>
+            <view class="{{curTab==1? 'active' : ''}}" data-id="1" bindtap="switchTab">直播回放</view>
+            <view class="{{curTab==2? 'active' : ''}}" data-id="2" bindtap="switchTab">个人资料</view>
+        </view>
+        <view class="tab-cont">
+            <view class="right-item {{curTab==0? 'active' : ''}}">
+                <view class='dyn-cont' wx:for="{{topicList}}" wx:key="index">
+                    <view class='dyn-pic'>
+                        <image src='{{item.FileName}}'></image>
+                    </view>
+                    <view class='dyn-pad'>
+                        <view class='dyn-op'>
+                            <view class='dyn-step'>
+                                <image src='../../../img/love.png'></image>
+                                <image src='../../../img/wechat.png'></image>
+                                <image src='../../../img/enjoy.png'></image>
+                            </view>
+                        </view>
+                        <view class='dyn-like'>
+                            <image src='{{user.Head}}' wx:for="{{item.LikeList}}" wx:for-item="user" wx:key="index"></image>
+                        </view>
+                        <view class='dyn-art'>
+                            <view class='art-title'>{{item.Title}}</view>
+                            <view class='art-time'>发布于{{item.CreateTime}}</view>
+                            <view class='art-text'>{{item.Content}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="right-item {{curTab==1? 'active' : ''}}">
+                <view class='online-box'>
+                    <navigator class='online-item' url="/pages/live/live/index?id={{item.LiveRoomNumber}}" wx:for="{{videoList}}" wx:key="index">
+                        <view class="tag">回放</view>
+                        <view class='online-video'>
+                            <image src='{{item.Image}}'></image>
+                        </view>
+                        <view class="con">
+                            <view class="name ellipsis">
+                                {{item.VideoName}}
+                            </view>
+                            <view class="time clearfix">
+                                <view class="fl">{{item.CreateTime}}</view>
+                                <view class="fr">{{item.Num}}观看</view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+            <view class="right-item {{curTab==2? 'active' : ''}}">
+                <view class='per-data'>
+                    <view class='per-item'>
+                        <view class='per-id'>ID</view>
+                        <view class='per-info'>{{user.Number}}</view>
+                    </view>
+                    <view class='per-item'>
+                        <view class='per-id'>生日</view>
+                        <view class='per-info'>{{user.Birthday}}</view>
+                    </view>
+                    <view class='per-item'>
+                        <view class='per-id'>星座</view>
+                        <view class='per-info'>{{user.Constellation}}</view>
+                    </view>
+                    <view class='per-item'>
+                        <view class='per-id'>城市</view>
+                        <view class='per-info'>{{user.Hometown}}</view>
+                    </view>
+                    <view class='per-item'>
+                        <view class='per-id'>职业</view>
+                        <view class='per-info'>{{user.Occupation}}</view>
+                    </view>
+                    <view class='per-item'>
+                        <view class='per-id'>个性签名</view>
+                        <view class='per-info'>
+                            {{user.Introduce}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

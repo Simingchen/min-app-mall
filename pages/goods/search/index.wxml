@@ -1,0 +1,26 @@
+<view class='search-input'>
+    <view class="input">
+        <input type='text' confirm-type="search" auto-focus bindconfirm="goSearch" maxlength='50' value="{{searchTxt}}"></input>
+    </view>
+</view>
+<view class='search-cond'>
+    <view class='title'>
+        <view class='line'></view>
+        <view class="txt">大家最近都在搜</view>
+    </view>
+    <view class='search-cont'>
+        <navigator class="item" hover-class="none" url="/pages/goods/list/index?txt={{item.SearchWord}}" wx:for="{{hotSearch}}" wx:key="{{index}}">
+            {{item.SearchWord}}
+        </navigator>
+    </view>
+</view>
+<!--历史搜索  -->
+<view class='search-his'>
+    <view class='title'>历史搜索</view>
+    <view class='list'>
+            <navigator class='list-box' hover-class="none" url="/pages/goods/list/index?txt={{item.txt}}"  wx:for="{{historySearch}}" wx:key="{{index}}">
+                <image src='../../../img/icon-history.png'></image>
+                <view>{{item.txt}}</view>
+            </navigator>
+        </view>
+</view>

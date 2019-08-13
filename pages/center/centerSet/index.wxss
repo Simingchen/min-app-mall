@@ -1,0 +1,46 @@
+page{
+    background: #f4f4f4;
+}
+.lh100{
+    line-height: 100rpx;
+}
+.mt40{
+    margin-top:40rpx;
+}
+.line-item{
+    background: #fff;
+    border-top:1rpx solid #f4f4f4;
+    padding-left:35rpx;
+    padding-right:65rpx;
+    color:#666;
+    line-height: 100rpx;
+    font-size: 27rpx;
+}
+.line-item.arrow{
+    position:relative;
+}
+.line-item.arrow:before{
+     position:absolute; 
+    content:"";
+    right:33rpx;
+    top:45rpx;
+    width:15rpx;
+    height:15rpx;
+    border-top:3rpx solid #666;
+    border-right:3rpx solid #666;
+    transform: rotate(45deg);
+}
+.line-item .lab{
+    float:left;
+    line-height: 100rpx;
+    height: 100rpx;
+    color:#000;
+}
+.signout{
+    margin-top:33rpx;
+    color: #f6819e;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 100rpx;
+    background: #fff;
+}

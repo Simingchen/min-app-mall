@@ -1,0 +1,33 @@
+page{
+    background: #f4f4f4;
+    color:#000;
+}
+.red-container{background:#f4f4f4;}
+.online .online-title{font-size:25rpx;color:#999;position:relative;height:76rpx;}
+.online .online-title .online-solid{width:355rpx;position:absolute;left:50%;top:50%;margin-left:-180rpx;height:1rpx;background:#999;}
+.online .online-title .text{font-size:25rpx;color:#999;position:absolute;left:50%;top:50%;width:124rpx;margin:-36rpx 0 0 -62rpx;background:#f4f4f4;text-align:center;height:76rpx;line-height:76rpx;}
+.online-box{padding-top:20rpx;overflow: hidden;}
+.online-box .online-item{background:#fff;position:relative;width:345rpx;float:left;margin-left:20rpx;margin-bottom:20rpx}
+.online-item .online-video image{
+    width:345rpx;
+    height:345rpx;
+    background: #a9a9a9;
+    /* height:186rpx; */
+}
+.online-item .online-info{padding:5rpx 0 10rpx 20rpx;}
+.online-info .online-name{
+    font-size:25rpx;
+    color:#000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.online-info .online-des{font-size:20rpx;color:#a9a9a9;line-height:40rpx;}
+.online-item .online-status{position:absolute;top:20rpx;left:20rpx;color:#fff;font-size:16rpx;  }
+.online-item .online-num{font-size:21rpx;color:#fff;position:absolute;right:30rpx;
+bottom:110rpx;
+}
+.online-item .online-num image{width:20rpx;height:17rpx;margin-right:5rpx;}
+.online-item .online-status icon{background:#de2339;width:15rpx;height:15rpx;border-radius:8rpx;margin-top:5rpx;float:left;margin-right:8rpx;}
+
+.reback .online-status icon{background:#f9d423;}

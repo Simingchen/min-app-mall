@@ -1,0 +1,362 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.94",
+	"appid": "wx0c0c2c866f024ec9",
+	"projectname": "%E4%B8%8A%E7%BA%BF%E7%89%88%E7%BA%A2%E8%B4%A7",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 53,
+			"list": [
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/center/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "注册",
+					"pathName": "pages/center/register/register",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/center/mine/mine",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "设置",
+					"pathName": "pages/center/centerSet/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改手机号",
+					"pathName": "pages/center/changePhone/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "关注列表",
+					"pathName": "pages/center/followList/index",
+					"query": "id=bflh-8"
+				},
+				{
+					"id": 3,
+					"name": "编辑资料",
+					"pathName": "pages/center/editMsg/editMsg",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "忘记密码",
+					"pathName": "pages/center/forget/forget",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "地址列表",
+					"pathName": "pages/center/addrList/addrlist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加地址",
+					"pathName": "pages/center/addrNew/addNew",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "编辑资料2",
+					"pathName": "pages/center/editTxt/editTxt",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品搜索",
+					"pathName": "pages/goods/search/index",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "商品搜索列表",
+					"pathName": "pages/goods/list/index",
+					"query": "id=bflh-8"
+				},
+				{
+					"id": 22,
+					"name": "收藏夹",
+					"pathName": "pages/goods/collect/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "物流",
+					"pathName": "pages/goods/express/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/shopCart/shopCart",
+					"query": ""
+				},
+				{
+					"id": 19,
+					"name": "首页",
+					"pathName": "pages/home/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品物流",
+					"pathName": "pages/goods/express/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改密码",
+					"pathName": "pages/center/changePass/change",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的等级",
+					"pathName": "pages/center/myRank/myRank",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "优惠券",
+					"pathName": "pages/center/coupon/coupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的评价",
+					"pathName": "pages/myComments/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "砍价列表",
+					"pathName": "pages/bargain/list/index",
+					"query": ""
+				},
+				{
+					"id": 23,
+					"name": "砍价商品",
+					"pathName": "pages/bargain/goods/index",
+					"query": ""
+				},
+				{
+					"id": 24,
+					"name": "砍价详情",
+					"pathName": "pages/bargain/detail/index",
+					"query": "id=9ad0a9a7-9fe6-4a33-9c46-35ec98e59b75&prepath=mybargain"
+				},
+				{
+					"id": -1,
+					"name": "我的砍价",
+					"pathName": "pages/bargain/mine/index",
+					"query": ""
+				},
+				{
+					"id": 26,
+					"name": "提交订单",
+					"pathName": "pages/order/submit/index",
+					"query": "id=64AF0080D46A10C1"
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/order/list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order/detail/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "直播广场",
+					"pathName": "pages/live/square/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "直播列表，红人",
+					"pathName": "pages/live/list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "直播回放",
+					"pathName": "pages/live/playback/index",
+					"query": ""
+				},
+				{
+					"id": 32,
+					"name": "直播，直播详情",
+					"pathName": "pages/live/live/index",
+					"query": "roomNumber=2259354&aid=340a9aae-62c8-4d76-80b0-f2c61e902d6d"
+				},
+				{
+					"id": 34,
+					"name": "直播主页",
+					"pathName": "pages/live/user/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "话题列表  主页",
+					"pathName": "pages/topic/list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "话题分类",
+					"pathName": "pages/topic/sort/index",
+					"query": ""
+				},
+				{
+					"id": 36,
+					"name": "话题详情",
+					"pathName": "pages/topic/detail/index",
+					"query": "id=cfdda85f-5637-4873-9f43-b6e1dba99229"
+				},
+				{
+					"id": -1,
+					"name": "话题评论",
+					"pathName": "pages/topic/comment/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "关注列表",
+					"pathName": "pages/center/followList/index",
+					"query": ""
+				},
+				{
+					"id": 39,
+					"name": "店铺",
+					"pathName": "pages/store/index",
+					"query": "id=0ef48c49-0a6e-44ae-b8be-2a3c1de20edc"
+				},
+				{
+					"id": 40,
+					"name": "商品详情",
+					"pathName": "pages/goods/detail/index",
+					"query": "index=5117&number=1011"
+				},
+				{
+					"id": 41,
+					"name": "主播主页",
+					"pathName": "pages/live/user/index",
+					"query": "id=4591afc6-aa06-4d9b-9f83-610f6f39b523"
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/goods/search/index",
+					"query": ""
+				},
+				{
+					"id": 43,
+					"name": "轮播详情",
+					"pathName": "pages/goods/banner/index",
+					"query": "id=69529389-7570-49d5-968a-df74a293fb6d"
+				},
+				{
+					"id": -1,
+					"name": "评论",
+					"pathName": "pages/topic/comment/index",
+					"query": "id=5487c10c-3556-4832-a283-e292f9e41693"
+				},
+				{
+					"id": -1,
+					"name": "商品评论",
+					"pathName": "pages/goods/comment/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "设置",
+					"pathName": "pages/center/centerSet/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改密码",
+					"pathName": "pages/center/changePass/change",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/goods/list/index",
+					"query": "id=bflh-8"
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/goods/search/index",
+					"query": "id=282F6636CEE9EFA6"
+				},
+				{
+					"id": -1,
+					"name": "提交订单",
+					"pathName": "pages/subject/index",
+					"query": "id=63b90eae-6c1c-41dd-bea8-80d951cc4da8"
+				},
+				{
+					"id": -1,
+					"name": "更新信息",
+					"pathName": "pages/center/updateMsg/index",
+					"query": "index=5117&number=1011"
+				},
+				{
+					"id": -1,
+					"name": "我的动态",
+					"pathName": "pages/center/moment/index",
+					"query": "index=5117&number=1011"
+				},
+				{
+					"id": 53,
+					"name": "每日好店  店铺列表",
+					"pathName": "pages/store/list/index",
+					"query": ""
+				}
+			]
+		}
+	}
+}

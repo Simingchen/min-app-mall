@@ -1,0 +1,60 @@
+<view class="shopCart-page">
+    <view class="empty" wx:if="{{isLogin}}">
+        <view class="txt">当前没有登录哦~  T.T</view>
+        <view class="subTxt">快去登录吧</view>
+        <navigator class="btn toActive" url="/login">去登录</navigator>
+    </view>
+    <block wx:if="{{!isLogin}}">
+        <view class="empty" wx:if="{{!cartItems.length}}">
+            <view class="txt">快去收藏吧~</view>
+        </view>
+        <view class="edit-bar" wx:if="{{cartItems.length}}">
+            <!-- 删除全选  -->
+            <view class="fl" data-flag="{{isAllSelectDeleted}}" bindtap="allSelectDeleted" wx:if="{{isEditStatus}}">
+                <text class="form-checkbox {{isAllSelectDeleted?'checked':''}}"></text>
+                <text>全选</text>
+            </view>
+            <button class="del-btn fr {{totalNum2>0? 'on': ''}}" disabled="{{totalNum2 == 0}}" bindtap="goDeleted">
+                <text>删除 ({{totalNum2}})</text>
+            </button>
+        </view>
+        <view class="page-content" wx:if="{{cartItems.length}}">
+            <view class="shop-item" wx:for="{{cartItems}}" wx:key="{{index}}">
+                <!-- 删除状态 -->
+                <view class='shop-store' data-id="{{item.ID}}" data-deleted="{{item.deleted}}" bindtap="selectShopDeleted" wx:if="{{isEditStatus}}">
+                    <view class="form-checkbox fl {{item.deleted? 'checked': ''}}"></view>
+                    <view class='text'>{{item.StoreName}}</view>
+                     <view class='arrow'></view> 
+                </view>
+                <view wx:for="{{item.List}}" wx:key="{{index}}" wx:for-item="goods">
+                    <view class="item-cart">
+                        <view class="check-container">
+                            <!-- 删除状态 -->
+                            <block wx:if="{{isEditStatus}}">
+                                <view class="form-checkbox {{goods.deleted? 'checked': ''}}" data-id="{{goods.ID}}" data-item="{{item}}" data-deleted="{{goods.deleted}}" bindtap="selectDeleted">
+                                    <text mark="编辑"></text>
+                                </view>
+                            </block>
+                        </view>
+                        <view class="name-card clearfix">
+                            <image class="thumb" src="{{goods.Img}}" data-index="{{goods.Index}}" data-number="{{goods.Number}}" bindtap="goUrl"></image>
+                            <view class="detail">
+                                <view class="title">
+                                    <view data-index="{{goods.Index}}" data-number="{{goods.Number}}" bindtap="goUrl">
+                                        {{goods.Name}}
+                                    </view>
+                                </view>
+                                <!-- 有库存 -->
+                                <block>
+                                    <view class="price">
+                                    ¥ <text class="b">{{goods.Price}}</text>
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

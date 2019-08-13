@@ -1,0 +1,7 @@
+.top-img .img{
+    width:100%;
+    display: block;
+}
+.detail image{
+    width:100%!important;
+}

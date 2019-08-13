@@ -1,0 +1,28 @@
+<view class="wrap">
+    <!--顶部导航  -->
+   <view class='dir'>
+       <!-- <view class='dir-btn'></view>
+       <view class='title'>商品评价</view>
+       <view class='edit'><image src='../images/icon/icon-wechat.png'></image></view> -->
+   </view>
+   <view class='rate'>
+       <view class='rate-num'>
+            <view>{{itemsData.Score}}%</view>
+            <view>五星好评率</view>
+       </view>
+       <view class='num'>{{itemsData.Count}}人已评价</view>
+   </view>
+   <view class='env'>
+       <view class='title'>评价</view>
+       <view class='env-box' wx:for="{{items}}" wx:key="{{index}}">
+            <image class="img" src='{{item.Head}}'></image>
+            <view class='user'>
+               <view class='name'>{{item.UserName}}</view>
+               <view class='time'>{{item.CreateTime}}</view>
+            </view>
+            <view class='info'>
+                {{item.Content}}
+            </view>
+       </view>
+   </view>
+</view>

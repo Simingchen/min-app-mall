@@ -1,0 +1,7 @@
+<import src="../../../wxParse/wxParse.wxml"/> 
+<view class="top-img">
+    <image class="img" src="{{detail.File}}" mode="widthFix"></image>
+</view>
+<view class="detail">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+</view>

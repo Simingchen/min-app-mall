@@ -1,0 +1,81 @@
+<scroll-view scroll-y class="content">
+    <view class="top">
+        <view class="share-person-box clearfix">
+            <image class="person-avator" src="{{goods.MemberHead}}"></image>
+            <view class="ofh">
+                <view class="person-name">{{goods.MemberName}}</view>
+                <view class="person-talk">我发现一件好货，一起砍价免费拿</view>
+            </view>
+        </view>
+        <view class="tips">
+            <image class="ico" src="../../../img/88_03.png"></image>
+            活动规则
+        </view>
+    </view>
+    <view class="goods-item">
+        <image class="goods-img" src="{{goods.GoodsImg}}"></image>
+        <view class="ofh">
+            <view class="goods-name">{{goods.GoodsName}}</view>
+            <view class="goods-price">¥ {{goods.Price}}</view>
+            <view class="goods-sale">{{goods.CurrentSuccess}}人已拿</view>
+        </view>
+    </view>
+    <!-- 砍价状态 -->
+    <view class="bargain-state flex-box">
+        <view class="flex-item">
+            已砍 <text class="price">{{goods.OwnerPrice}}元</text>
+        </view>
+        <view class="flex-item">
+            还差 <text class="price">{{goods.ResidueBalance}}元</text>
+        </view>
+    </view>
+    <view class="bargain-bar-box clearfix">
+        <view class="bar-box">
+            <view class="bar" style="width:{{percentage}}">
+                <view class="bar-price" wx:if="{{goods.OwnerPrice != '0.00'}}">¥ {{goods.OwnerPrice}}</view>
+            </view>
+        </view>
+        <view class="price-start">¥ {{goods.Price}}</view>
+        <view class="price-end">¥ 0</view>
+    </view>
+    <view class="bargain-time-box">
+        <view class="btn" bindtap='hlepBargain' wx:if="{{prepath == 'share'}}">帮好朋友砍一刀</view>
+        <button class="btn" open-type="share" wx:if="{{prepath != 'share'}}">分享给好友，多砍一刀</button>
+        <view class="time" wx:if="{{goods.Status == 0}}">
+            还剩 <text>{{wxTimerList['wxTimer1'].wxTimer}}</text> 过期，快来砍价吧~
+        </view>
+        <view class="time" wx:if="{{goods.Status > 0}}">
+            {{goods.StatusToString}}
+        </view>
+    </view>
+    <view class="bargain-help-box">
+        <view class="help-item clearfix" wx:for="{{goods.BargainList}}" wx:key="{{index}}">
+            <image class="help-img" src="{{item.Head}}"></image>
+            <view class="fl">
+                <view class="help-name">{{item.Name}}</view>
+                <view class="help-desc">砍价一起免费拿吧</view>
+            </view>
+            <view class="help-price">
+                砍掉 <text>{{item.Price}}</text>元
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view class="popup {{!isShowPopup? 'popup-enter' : ''}}" wx:if="{{isShowPopup}}">
+    <view class="mark" bindtap="togglePopup"></view>
+    <view class="con">
+        <image class="bg" src="../../../img/803.png"></image>
+        <view class="txt">
+            你已经成功砍价<text class="f600">{{bargain.BargainPrice}}</text><text>元</text>
+        </view>
+        <view class="share tac">
+            <view>分享给好友可以多砍一刀哦</view>
+            <button open-type="share">
+                <image class="wc" src="../../../img/88_06.png"></image>
+                <view>微信</view>
+            </button>
+        </view>
+        <image class="close" src="../../../img/88_07.png" bindtap="togglePopup">
+        </image>
+    </view>
+</view>

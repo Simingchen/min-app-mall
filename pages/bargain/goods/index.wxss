@@ -1,0 +1,509 @@
+.tac{
+    text-align: center;
+}
+.g-ban image {
+    width: 750rpx;
+}
+.main-img{
+    height:750rpx;
+}
+.g-detail {
+    margin-top: 3rpx;
+    background: #fff;
+}
+
+.g-detail .g-pad {
+    padding: 20rpx;
+}
+
+.g-detail .g-title {
+    font-size: 29rpx;
+    color: #000;
+    line-height: 35rpx;
+}
+
+.g-detail .g-price {
+    font-size: 42rpx;
+    color: #f6819e;
+    padding: 10rpx 0;
+}
+
+.g-detail .g-way {
+    overflow: hidden;
+    height: 35rpx;
+    padding-bottom: 20rpx;
+}
+
+.g-detail .g-way .g-fre, .g-detail .g-way .g-sales {
+    font-size: 25rpx;
+    line-height: 35rpx;
+    color: #999;
+    float: left;
+}
+
+.g-detail .g-way .g-sales {
+    float: right;
+}
+
+.g-detail .g-promise {
+    background: #fff;
+    padding: 18rpx 20rpx;
+    border-top: 1rpx solid #e4e4e4;
+    border-bottom: 17rpx solid #e4e4e4;
+}
+
+.g-detail .g-promise image {
+    width: 22rpx;
+    height: 22rpx;
+    float: left;
+    margin: 8rpx 10rpx 0 0;
+}
+
+.g-detail .g-promise view {
+    font-size: 25rpx;
+    line-height: 35rpx;
+    color: #000;
+}
+
+.g-detail .g-params view {
+    font-size: 29rpx;
+    line-height: 35rpx;
+    padding: 20rpx;
+}
+
+.g-detail .g-params view:first-child {
+    border-bottom: 2rpx solid #e4e4e4;
+}
+
+.g-detail .g-advance {
+    background: #e4e4e4;
+    height: 84rpx;
+    position: relative;
+}
+
+.g-detail .g-advance .line {
+    height: 2rpx;
+    background: #999;
+    width: 660rpx;
+    position: absolute;
+    top: 42rpx;
+    left: 45rpx;
+}
+
+.g-detail .g-advance .tit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: #e4e4e4;
+    width: 130rpx;
+    height: 30rpx;
+    margin: -15rpx 0 0 -65rpx;
+    padding-left: 20rpx;
+}
+
+.g-detail .g-advance .tit view {
+    color: #999;
+    font-size: 25rpx;
+    line-height: 35rpx;
+}
+
+.g-detail .g-advance .tit image {
+    width: 26rpx;
+    height: 26rpx;
+    float: left;
+    margin: 4rpx 10rpx 0 0;
+}
+
+.g-detail .g-adtitle {
+    font-size: 29rpx;
+    line-height: 75rpx;
+    border-bottom: 2rpx solid #e4e4e4;
+    padding-left: 20rpx;
+    color: #000;
+}
+
+.g-detail .g-usertit {
+    overflow: hidden;
+    padding: 25rpx 0;
+}
+
+.g-detail .g-userinfo {
+    float: left;
+    width: 200rpx;
+}
+
+.g-detail .g-userinfo image {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 25rpx;
+    float: left;
+    margin: 5rpx 20rpx 0 0;
+}
+
+.g-detail .g-userinfo view {
+    font-size: 25rpx;
+    line-height: 50rpx;
+    color: #000;
+}
+
+.g-detail .g-time {
+    float: right;
+    color: #999;
+    font-size: 20rpx;
+    line-height: 50rpx;
+}
+
+.g-adcont {
+    padding: 0 20rpx;
+}
+
+.g-adcont .g-userments {
+    color: #000;
+    font-size: 29rpx;
+}
+
+.g-adcont .g-attr {
+    color: #999;
+    font-size: 21rpx;
+    padding: 25rpx 0;
+}
+
+.g-adinfo .g-view {
+    color: #f6819e;
+    border: 1px solid #f6819e;
+    font-size: 25rpx;
+    width: 208rpx;
+    height: 48rpx;
+    border-radius: 24rpx;
+    line-height: 48rpx;
+    text-align: center;
+    margin-left: 270rpx;
+    margin-bottom: 30rpx;
+}
+
+.g-store {
+    display: flex;
+    display: -webkit-flex;
+    display: -webkit-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 85rpx;
+    width: 750rpx;
+    background: #fff;
+}
+
+.g-store .pic-text {
+    flex: 2;
+    -webkit-box-flex: 2;
+}
+
+.g-store .pic-text:first-child {
+    border-right: 1rpx solid #e4e4e4;
+}
+
+.g-store .pic-text image {
+    width: 35rpx;
+    height: 33rpx;
+    display: block;
+    margin: 13rpx 0 0 60rpx;
+}
+
+.g-store .pic-text .text {
+    font-size: 21rpx;
+    color: #000;
+    text-align: center;
+    line-height: 40rpx;
+}
+
+.g-store .g-car, .g-store .g-buy {
+    flex: 3;
+    -webkit-box-flex: 3;
+    color: #fff;
+    text-align: center;
+    font-size: 29rpx;
+    line-height: 85rpx;
+}
+
+.g-store .g-car {
+    background: #ff9f85;
+}
+
+.g-store .g-buy {
+    background: #ff658b;
+}
+
+/*加入购物车  */
+
+.g-join {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    width: 750rpx;
+    z-index: 5;
+}
+
+.g-join .delete {
+    position: absolute;
+    right: 30rpx;
+    top: 30rpx;
+}
+
+.g-join .delete image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.g-join .g-car-info {
+    padding: 0 35rpx;
+}
+
+.g-join .pic-text {
+    padding-bottom: 55rpx;
+    height: 220rpx;
+}
+
+.g-join .pic-text image {
+    width: 200rpx;
+    height: 200rpx;
+    float: left;
+    margin: -20rpx 28rpx 0;
+    border: 1rpx solid #efefef;
+    border-radius: 5rpx;
+}
+
+.g-join .pic-text .text {
+    float: left;
+}
+
+.g-join .pic-text .text .price {
+    font-size: 41rpx;
+    color: #f6819e;
+    padding: 10rpx 0;
+}
+
+.g-join .pic-text .text .inv {
+    color: #999;
+    font-size: 25rpx;
+    line-height: 35rpx;
+    padding: 10rpx 0;
+}
+
+.g-join .pro-attr {
+    border-top: 1rpx solid #e4e4e4;
+    border-bottom: 1rpx solid #e4e4e4;
+}
+
+.g-join .pro-attr .title {
+    color: #000;
+    font-size: 25rpx;
+    padding: 20rpx 0;
+}
+
+.g-join .pro-attr .pro-btn {
+    overflow: hidden;
+    padding-bottom: 20rpx;
+}
+
+.g-join .pro-attr .pro-btn view {
+    float: left;
+    height: 50rpx;
+    width: 136rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border: 1rpx solid #f6819e;
+    border-radius: 25rpx;
+    color: #f6819e;
+    margin-right: 24rpx;
+    font-size: 25rpx;
+}
+
+.g-join .pro-attr .pro-btn .active {
+    background: linear-gradient(#f69bb0, #facbc0);
+    color: #fff;
+}
+
+.g-join .pro-num {
+    margin: 20rpx 0;
+}
+
+.g-join .pro-num .text {
+    float: left;
+    color: #000;
+    font-size: 25rpx;
+}
+
+.g-join .g-car-info .pro-num {
+    padding: 20rpx 0 80rpx;
+}
+
+.g-join .g-car-info .pro-num .text {
+    float: left;
+    font-size: 25rpx;
+    color: #000;
+}
+
+.g-join .g-car-info .pro-num .btn-num {
+    float: right;
+    background: #f4f4f4;
+    height: 50rpx;
+    width: 200rpx;
+    border-radius: 25rpx;
+    overflow: hidden;
+    padding: 0 18rpx;
+}
+
+.g-join .g-car-info .pro-num .btn-num view {
+    float: left;
+    color: #f6819e;
+    width: 55rpx;
+    line-height: 36rpx;
+    text-align: center;
+    height: 36rpx;
+    font-size: 45rpx;
+    margin-top: 7rpx;
+}
+
+.g-join .g-car-info .pro-num .btn-num .num {
+    background: #f6819e;
+    color: #fff;
+    border-radius: 5rpx;
+    font-size: 25rpx;
+}
+
+.btn-group {
+    display: flex;
+    display: -webkit-flex;
+    display: -webkit-box;
+}
+
+.btn-group view {
+    flex: 1;
+    -webkit-box-flex: 1;
+    color: #fff;
+    text-align: center;
+    font-size: 29rpx;
+    line-height: 85rpx;
+    background: #ff658b;
+}
+
+.btn-group view:first-child {
+    background: #ff9f85;
+}
+.g-goodpic image{
+    width:750rpx;
+}
+.hr85{
+    height:85rpx;
+}
+.line-item.arrow{
+    position:relative;
+}
+.line-item.arrow:before{
+     position:absolute; 
+    content:"";
+    right:33rpx;
+    top:30rpx;
+    width:15rpx;
+    height:15rpx;
+    border-top:3rpx solid #666;
+    border-right:3rpx solid #666;
+    transform: rotate(45deg);
+}
+/*产品参数  */
+.params-container{
+    background:#fff;
+    bottom:0;
+    left: 0;
+    position:fixed;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+.params-container-box.popup-enter .params-container,
+.params-container-box.popup-leave .params-container{
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+}
+
+.params-container .title{text-align:center;font-size:33rpx;color:#000;line-height: 110rpx;}
+.pro-box{padding:0 32rpx 85rpx;}
+.pro-box .item{border-bottom:1rpx solid #e4e4e4;overflow:hidden;}
+.pro-box .item view{float:left;height:95rpx;line-height:95rpx;text-align: left;font-size:29rpx;}
+.pro-box .item .sku-item{
+    margin-right:10px;
+}
+.pro-box .item view:first-child{width:175rpx;padding-left:30rpx;}
+.params-container .pro-btn{background:#f6a3b3;height:85rpx;width:750rpx;color:#fff;text-align:center;line-height:85rpx;font-size:29rpx;}
+
+.g-join{
+    width:100%;
+    position: fixed;
+    bottom:0;
+    z-index: 10;
+    background:  #fff;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+.boxBg.popup-enter .g-join,
+.boxBg.popup-leave .g-join{
+    -webkit-transform: translate3d(0, 110%, 0);
+    transform: translate3d(0, 110%, 0);
+}
+.mark{
+    position: fixed;
+}
+.popup .title{
+    position:relative;
+    text-align: center;
+    line-height: 100rpx;
+    border-bottom:1px solid #eee;
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.popup .title .close{
+    position:absolute;
+    right:32rpx;
+    top:39rpx;
+    width:22rpx;
+    height:22rpx;
+}
+.popup .con{
+    width:100%;
+    position: fixed;
+    bottom:0;
+    z-index: 10;
+    background:  #fff;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+.popup.popup-enter .con,
+.popup.popup-leave .con{
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+}
+.popup.popup-enter .mark{
+    opacity: 0;
+}
+.scroll{
+    height:600rpx;
+}
+.add-btn{
+    position:relative;
+    text-align: center;
+    line-height: 100rpx;
+    border-top:1px solid #eee;
+    font-size: 28rpx;
+    font-weight: 600;
+}
+.adderss-list{
+    padding: 0 40rpx 0 30rpx;
+}
+.adderss-list .item{
+    height:160rpx;
+    padding-top:20rpx;
+    border-bottom:1rpx solid #f4f4f4;
+}
+.adderss-list .item text{
+    margin-left:17rpx;
+}

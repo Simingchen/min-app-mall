@@ -1,0 +1,57 @@
+<view class="top-nav flex-box">
+    <view class="flex-item {{curTab == 1? 'on':''}}" data-type="1" bindtap='switchTab'>热门</view>
+    <view class="flex-item {{curTab == 2? 'on':''}}" data-type="2" bindtap='switchTab'>分类</view>
+</view>
+<block wx:if="{{curTab == 1}}">
+    <view class="news-list">
+        <navigator class="item flex-box" wx:for="{{hotList}}" wx:key="index" url="/pages/topic/detail/index?id={{item.ID}}">
+            <view class="flex-item">
+                <view class="con">
+                    <view class="tit">
+                        <view class="txt ellipsis">＃{{item.Title}}</view>
+                        <text class="tag">官方</text>
+                    </view>
+                    <view class="desc ellipsis2">
+                        {{item.Content}}
+                    </view>
+                    <view class="flex-box between time">
+                        <view class="flex-item">{{item.CreateTime}}</view>
+                        <view class="tar">{{item.Name}} | 阅读量{{item.ViewCount}}</view>
+                    </view>
+                </view>
+            </view>
+            <image class="img" mode="aspectFill" src="{{item.FileName}}"></image>
+        </navigator>
+    </view>
+</block>
+<view wx:if="{{curTab == 2}}">
+    <view class="panel sort">
+        <view class="title">分类主题</view>
+        <view class="clearfix">
+            <view class="item">
+                <navigator hover-class="none" url="/pages/topic/sort/index?type=1" wx:for="{{sortList}}" wx:key="index">
+                    <image wx:if="{{imageUrlPath}}" src="{{imageUrlPath+'t'+item.ID}}.jpg"></image>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="panel sort-list">
+        <view class="title">最近更新</view>
+        <view class="news-list">
+            <navigator class="item flex-box" wx:for="{{newestList}}" wx:key="{{index}}" url="/pages/topic/detail/index?id={{item.ID}}">
+                <view class="flex-item">
+                    <view class="con">
+                        <view class="tit ellipsis2">
+                            {{item.Title}}
+                        </view>
+                        <view class="flex-box between time">
+                            <view class="flex-item">{{item.CreateTime}}</view>
+                            <view class="tar">{{item.Name}} | 阅读量{{item.ViewCount}}</view>
+                        </view>
+                    </view>
+                </view>
+                <image class="img" mode="aspectFill" src="{{item.FileName}}"></image>
+            </navigator>
+        </view>
+    </view>
+</view>
