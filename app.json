@@ -1,83 +1,84 @@
 {
-    "pages": [
-        "pages/home/index",
-        "pages/center/login/login",
-        "pages/center/mine/mine",
-        "pages/center/editMsg/editMsg",
-        "pages/center/register/register",
-        "pages/center/forget/forget",
-        "pages/center/addrList/addrlist",
-        "pages/center/addrNew/addNew",
-        "pages/center/editTxt/editTxt",
-        "pages/center/centerSet/index",
-        "pages/center/changePhone/index",
-        "pages/center/followList/index",
-        "pages/center/changePass/change",
-        "pages/center/updateMsg/index",
-        "pages/center/moment/index",
-        "pages/center/myRank/myRank",
-        "pages/center/coupon/coupon",
-        "pages/shopCart/shopCart",
-        "pages/myComments/index",
-        "pages/bargain/list/index",
-        "pages/bargain/goods/index",
-        "pages/bargain/detail/index",
-        "pages/bargain/mine/index",
-        "pages/live/square/index",
-        "pages/live/list/index",
-        "pages/live/playback/index",
-        "pages/live/live/index",
-        "pages/live/user/index",
-        "pages/goods/list/index",
-        "pages/goods/detail/index",
-        "pages/goods/collect/index",
-        "pages/goods/search/index",
-        "pages/goods/express/index",
-        "pages/goods/banner/index",
-        "pages/goods/event/index",
-        "pages/goods/comment/index",
-        "pages/order/list/index",
-        "pages/order/submit/index",
-        "pages/order/detail/index",
-        "pages/subject/index",
-        "pages/topic/sort/index",
-        "pages/topic/list/index",
-        "pages/topic/detail/index",
-        "pages/topic/comment/index",
-        "pages/store/detail/index",
-        "pages/store/list/index",
-        "pages/store/search/index"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#f699b0",
-        "navigationBarTitleText": "",
-        "navigationBarTextStyle": "#fff"
-    },
-    "tabBar": {
-        "color": "#666",
-        "selectedColor": "#f6819e",
-        "borderStyle": "black",
-        "backgroundColor": "#fff",
-        "list": [
-            {
-                "selectedIconPath": "img/icon11.jpg",
-                "iconPath": "img/icon1.jpg",
-                "pagePath": "pages/home/index",
-                "text": "首页"
-            },
-            {
-                "selectedIconPath": "img/icon21.jpg",
-                "iconPath": "img/icon2.jpg",
-                "pagePath": "pages/live/square/index",
-                "text": "直播广场"
-            },
-            {
-                "selectedIconPath": "img/icon31.jpg",
-                "iconPath": "img/icon3.jpg",
-                "pagePath": "pages/center/mine/mine",
-                "text": "个人中心"
-            }
-        ]
-    }
+  "pages": [
+    "pages/home/index",
+    "pages/center/login/login",
+    "pages/center/mine/mine",
+    "pages/center/editMsg/editMsg",
+    "pages/center/register/register",
+    "pages/center/forget/forget",
+    "pages/center/addrList/addrlist",
+    "pages/center/addrNew/addNew",
+    "pages/center/editTxt/editTxt",
+    "pages/center/centerSet/index",
+    "pages/center/changePhone/index",
+    "pages/center/followList/index",
+    "pages/center/changePass/change",
+    "pages/center/updateMsg/index",
+    "pages/center/moment/index",
+    "pages/center/myRank/myRank",
+    "pages/center/coupon/coupon",
+    "pages/shopCart/shopCart",
+    "pages/myComments/index",
+    "pages/bargain/list/index",
+    "pages/bargain/goods/index",
+    "pages/bargain/detail/index",
+    "pages/bargain/mine/index",
+    "pages/live/square/index",
+    "pages/live/list/index",
+    "pages/live/playback/index",
+    "pages/live/live/index",
+    "pages/live/user/index",
+    "pages/goods/list/index",
+    "pages/goods/detail/index",
+    "pages/goods/collect/index",
+    "pages/goods/search/index",
+    "pages/goods/express/index",
+    "pages/goods/banner/index",
+    "pages/goods/event/index",
+    "pages/goods/comment/index",
+    "pages/order/list/index",
+    "pages/order/submit/index",
+    "pages/order/detail/index",
+    "pages/subject/index",
+    "pages/topic/sort/index",
+    "pages/topic/list/index",
+    "pages/topic/detail/index",
+    "pages/topic/comment/index",
+    "pages/store/detail/index",
+    "pages/store/list/index",
+    "pages/store/search/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f699b0",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#f6819e",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "selectedIconPath": "img/icon11.jpg",
+        "iconPath": "img/icon1.jpg",
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "img/icon21.jpg",
+        "iconPath": "img/icon2.jpg",
+        "pagePath": "pages/live/square/index",
+        "text": "直播广场"
+      },
+      {
+        "selectedIconPath": "img/icon31.jpg",
+        "iconPath": "img/icon3.jpg",
+        "pagePath": "pages/center/mine/mine",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }
