@@ -1,5 +1,3 @@
-
-// const socket = io("ws://193.112.72.100:8002")
 App({
     onLaunch: function () {
         // 登录
