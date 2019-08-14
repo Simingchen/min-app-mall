@@ -3,8 +3,8 @@ const urlXBase = 'https://ssl.wmgyb.com:444/';
 const urlXApi = urlXBase + 'actions/';
 var userinfo = {};
 var openid = '';
-const appid = 'wx9bf6adf779634634'; //填写微信小程序appid  
-const secret = 'e176064c6b1c5ffafec5e2ebf49f3423'; //填写微信小程序secret
+const appid = ''; //填写微信小程序appid  
+const secret = ''; //填写微信小程序secret
 
 var API_URL = 'http://localhost/loverule/api/api.php'
 
