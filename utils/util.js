@@ -1,5 +1,5 @@
 const app = getApp()
-const urlXBase = 'https://ssl.wmgyb.com:444/';
+const urlXBase = 'https://xcx.honghuo777.com:447/';
 const urlXApi = urlXBase + 'actions/';
 var userinfo = {};
 var openid = '';
